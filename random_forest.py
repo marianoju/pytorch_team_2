@@ -1,9 +1,10 @@
 import pandas as pd
-import seaborn as sns
 import features
+
+import seaborn as sns
+sns.set()
 from sklearn.tree import DecisionTreeRegressor
 
-sns.set()
 
 if __name__ == '__main__':
     data = pd.read_csv("data/housing.csv")
