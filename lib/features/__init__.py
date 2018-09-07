@@ -4,9 +4,9 @@ from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 import pandas as pd
 
-def drop_nan (data):
-        data2=data.dropna(axis=0, how='any')
-        return data2
+def drop_nan(data):
+        data=data.dropna(axis=0, how='any')
+        return data
 
 def scaling(method,X_train,X_test):
     if method == "Standard":
@@ -26,7 +26,6 @@ def polynomial_features(X,degree):
     X_poly = poly_features.fit_transform(X)
     return X_poly
 
-
 def reencode_to_binary(data, column):
     encoder = OneHotEncoder()
     cat_1hot = encoder.fit_transform(data[column].values.reshape(-1, 1))
@@ -41,4 +40,4 @@ def reencode_to_binary(data, column):
 def reencode_categorical(data):
     # hier wird das kategorische Merkmal verarbeitet
     df = pd.get_dummies(data, drop_first=True)
-    return df
+    return data
