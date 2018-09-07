@@ -28,6 +28,7 @@ def polynomialfeatures(X,degree):
 
 
 def binaerisierung(data, column):
+    #falls es Spalten mit nominalen Kategorien gibt, die umgewandelt werden sollen
     encoder = OneHotEncoder()
     cat_1hot = encoder.fit_transform(data[column].values.reshape(-1, 1))
     np_cat_1hot = cat_1hot.toarray()
@@ -39,6 +40,6 @@ def binaerisierung(data, column):
     return data
 
 def categorical(data):
-    # hier wird das kategorische Merkmal verarbeitet
+    # hier werden alle Strings verarbeitet
     df = pd.get_dummies(data, drop_first=True)
     return df
