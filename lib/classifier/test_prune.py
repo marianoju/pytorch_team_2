@@ -9,7 +9,7 @@ from classifier.prune import prune
 
 class TestPrune(TestCase):
 
-    def setUp(self):
+    def set_up_test_tree(self):
         input_data = np.zeros((12, 2))
         self.target = np.zeros((12, 1))
 
