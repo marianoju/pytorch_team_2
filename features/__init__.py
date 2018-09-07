@@ -8,7 +8,7 @@ def drop_nan (data):
         data2=data.dropna(axis=0, how='any')
         return data2
 
-def scaling(method,X_train,X_test,y_test,y_train):
+def scaling(method,X_train,X_test):
     if method == "Standard":
         scaler = StandardScaler()
         scaler.fit(X_train)
@@ -19,7 +19,7 @@ def scaling(method,X_train,X_test,y_test,y_train):
         min_max_scaler.fit(X_train)
         X_train = min_max_scaler.transform(X_train)
         X_test = min_max_scaler.transform(X_test)
-    return X_train,y_train,X_test,y_test
+    return X_train,X_test
 
 def polynomial_features(X,degree):
     poly_features = PolynomialFeatures(degree=degree)
