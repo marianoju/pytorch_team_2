@@ -1,7 +1,7 @@
 # PyTorch Team 2
 
 ## Members 
-- [https://github.com/fenomeno711](Andreas)
-- [https://github.com/fabteuma](Fabrice)
-- [https://github.com/marianoju](Mariano)
-- [https://github.com/Spabst15](Sophie)
+- [Andreas](https://github.com/fenomeno711)
+- [Fabrice](https://github.com/fabteuma)
+- [Mariano](https://github.com/marianoju)
+- [Sophie](https://github.com/Spabst15)
