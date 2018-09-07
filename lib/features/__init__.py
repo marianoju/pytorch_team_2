@@ -4,7 +4,7 @@ from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 import pandas as pd
 
-def drop_nan (data):
+def drop_nan(data):
         data2=data.dropna(axis=0, how='any')
         return data2
 
