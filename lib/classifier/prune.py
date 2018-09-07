@@ -10,7 +10,7 @@ def prune(inner_tree, index):
     @:param index: the index of the node at which inner_tree is pruned
     """
 
-    # If there are children nodes: follow edge to children node 
+    # If children nodes exit: traverse edge to children nodes 
     if inner_tree.children_left[index] != _tree.TREE_LEAF:
         prune(inner_tree, inner_tree.children_left[index])
         prune(inner_tree, inner_tree.children_right[index])
@@ -87,7 +87,7 @@ def _calc_impurity(tree, index):
 
         return impurity_left + impurity_right, leafs_left + leafs_right
 
-    # If there are no children nodes -> leaf 
+    # If there are no children nodes, this means current node is a leaf 
     else:
         # print("index: ", index, " cost: ", d_tree.tree_.n_node_samples[index] * tree.impurity[index]/10^7)
         return tree.n_node_samples[index] * tree.impurity[index], 1
