@@ -1,6 +1,7 @@
 from sklearn.preprocessing import StandardScaler,MinMaxScaler
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.preprocessing import OneHotEncoder
+
 import numpy as np
 import pandas as pd
 
@@ -27,6 +28,12 @@ def polynomial_features(X,degree):
     return X_poly
 
 
+#to replace reencode to binary-function:
+def encode2binary(df):
+    new_df = pd.get_dummies(df, drop_first=True)
+    return new_df
+
+
 def reencode_to_binary(data, column):
     encoder = OneHotEncoder()
     cat_1hot = encoder.fit_transform(data[column].values.reshape(-1, 1))
@@ -42,3 +49,5 @@ def reencode_categorical(data):
     # hier wird das kategorische Merkmal verarbeitet
     df = pd.get_dummies(data, drop_first=True)
     return df
+
+
