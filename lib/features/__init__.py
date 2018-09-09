@@ -47,3 +47,4 @@ def reencode_to_binary(data, column):
                      axis=1)
     data = data.drop(column, axis=1)
     return data
+

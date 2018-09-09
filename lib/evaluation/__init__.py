@@ -8,3 +8,4 @@ def print_errors(test, predicted):
     print("R2: ", r2_score(test, predicted))
     print("RMSE % of mean:", np.sqrt(((test - predicted) ** 2).mean()) / test.mean())
     print("Calibration:", predicted.mean() / test.mean())
+

@@ -16,26 +16,40 @@ population of 600 to 3,000 people).
 [2] http://www.dcc.fc.up.pt/%7Eltorgo/Regression/cal_housing.html
 """
 
-# import necessary libraries here 
+# import necessary libraries only here
 import pandas as pd
-import numpy as np
-
+from preprocessing import preprocessing
+from decision_tree import decision_tree
+from evaluation import print_errors
 
 if __name__ == '__main__':
 
-   # Preprocessing takes a data input 
-   # and gives an output: cleaned_data
+   """ --------------------------------------------------------------------
+   Preprocessing takes an input: data
+   and returns as output: cleaned_data 
+   -------------------------------------------------------------------- """
+   data = pd.read_csv("data/housing.csv", na_values='')
+   preprocessing(data)
 
-   preprocessing()
+   """ --------------------------------------------------------------------
+   Each method takes an input: cleaned_data 
+   and returns as output: test, predicted 
+   to-do: uncomment method when in place 
+   -------------------------------------------------------------------- """
+   cleaned_data = pd.read_csv("data/cleaned_data.csv", na_values='')
 
-   # Hier werden die verschiedene ML tools durchgeführt und getested
-   decision_tree(data_in = data)
-   decision_tree_with_pruning(data_in = data)
-   random_forest(data_in = data)
+   decision_tree(cleaned_data)
+   # decision_tree_with_pruning(cleaned_data)
+   # random_forest(cleaned_data)
 
-   evaluation.decision_tree(input)
-   evaluation.decision_tree_with_pruning(input)
-   evaluation.random_forest(input)
+   """ --------------------------------------------------------------------
+   Each method is evaluated by testing the prediction of the model  
+   on a test subset and returns as output: 
+   MSE, RMSE, R2, RMSE % of mean, Calibration
+   to-do: uncomment method when in place  
+   -------------------------------------------------------------------- """
+   print_errors(y_test, y_prediction)
+   # evaluation.decision_tree_with_pruning(test, predicted)
+   # evaluation.random_forest(test, predicted)
 
-   plot_result(input)
-
+   # plot_result(input)
