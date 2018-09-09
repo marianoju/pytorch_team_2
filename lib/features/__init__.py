@@ -1,9 +1,9 @@
+import numpy as np
+import pandas as pd
+
 from sklearn.preprocessing import StandardScaler,MinMaxScaler
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.preprocessing import OneHotEncoder
-
-import numpy as np
-import pandas as pd
 
 
 def drop_nan(data):
