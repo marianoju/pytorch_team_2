@@ -14,9 +14,9 @@ def fit(model, features, targets):
 def predict(model, data):
    start = time.time()
    prediction = model.predict(data)
-   prediction_probability = model.predict_proba(data)
+   #prediction_probability = model.predict_proba(data)
    end = time.time()
 
    print(f'Prediction finished in: {end - start}s.')
 
-   return prediction, prediction_probability
+   return prediction#, prediction_probability
