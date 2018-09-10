@@ -9,7 +9,7 @@ import time
 def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
                       random_state=None):
 
-    # Erstellen und trainieren des ursprünglichen Baumes
+    # Erstellen und Trainieren des ursprünglichen Baumes
 
     dtree = DecisionTreeRegressor(max_depth=max_depth,
                                       random_state=random_state)
@@ -20,7 +20,7 @@ def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
     tree_array = [dtree]
     num_nodes = dtree.tree_.capacity
 
-    # Pruning der Bäume und anhängen an die Liste
+    # Pruning der Bäume und Anhängen an die Liste
     k = 1
 
     while num_nodes > 1:
@@ -50,7 +50,7 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
     # Initiate model
     d_tree = DecisionTreeRegressor(max_depth=max_depth,
                                       random_state=random_state)
-    dtwp_model = d_tree
+    dtwpf_model = d_tree
 
     # Fit model
     d_tree.fit(X_train, y_train)
@@ -78,4 +78,4 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
     index = test_errors_np.argmin()
     pred = tree_pruner.trees[index].predict(X_test)
 
-    return y_test, pred, dtwp_model
+    return y_test, pred, dtwpf_model
