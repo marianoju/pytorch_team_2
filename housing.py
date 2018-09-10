@@ -21,7 +21,7 @@ from preprocessing import preprocessing
 from decision_tree import decision_tree
 from random_forest import random_forest
 from evaluation import print_errors
-from dtree_with_pruning import dtree_with_pruning
+from dtree_with_pruning_faster import dtree_with_pruning
 
 if __name__ == '__main__':
 
@@ -39,7 +39,7 @@ if __name__ == '__main__':
 
    y_test, dt_y_prediction, dt_model = decision_tree(X_train, X_test, y_train, y_test,
                                            max_depth=13, random_state=11)
-   y_test, dtwp_y_prediction = dtree_with_pruning(X_train, X_test, y_train, y_test,
+   y_test, dtwp_y_prediction, dtwp_model = dtree_with_pruning(X_train, X_test, y_train, y_test,
                                                   max_depth=13,random_state=13)
    y_test, rf_y_prediction, rf_model = random_forest(X_train, X_test, y_train, y_test,
                                            max_depth=10, random_state=11,
