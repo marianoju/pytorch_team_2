@@ -16,26 +16,36 @@ population of 600 to 3,000 people).
 [2] http://www.dcc.fc.up.pt/%7Eltorgo/Regression/cal_housing.html
 """
 
-# import necessary libraries here 
-import pandas as pd
-import numpy as np
-
+# import necessary libraries only here
+from preprocessing import preprocessing
+from decision_tree import decision_tree
+from evaluation import print_errors
 
 if __name__ == '__main__':
 
-   # Preprocessing takes a data input 
-   # and gives an output: cleaned_data
+   """ --------------------------------------------------------------------
+   Preprocessing takes an input: data
+   and returns as output: X_train, X_test, y_train, y_test 
+   -------------------------------------------------------------------- """
+   X_train, X_test, y_train, y_test = preprocessing()
 
-   preprocessing()
+   """ --------------------------------------------------------------------
+   Each method takes an input: X_train, X_test, y_train, y_test
+   and returns as output: test, predicted 
+   to-do: uncomment method when in place 
+   -------------------------------------------------------------------- """
+   y_test, dt_y_prediction = decision_tree(X_train, X_test, y_train, y_test)
+   # decision_tree_with_pruning(X_train, X_test, y_train, y_test)
+   # random_forest(X_train, X_test, y_train, y_test)
 
-   # Hier werden die verschiedene ML tools durchgeführt und getested
-   decision_tree(data_in = data)
-   decision_tree_with_pruning(data_in = data)
-   random_forest(data_in = data)
+   """ --------------------------------------------------------------------
+   Each method is evaluated by testing the prediction of the model  
+   on a test subset and returns as output: 
+   MSE, RMSE, R2, RMSE % of mean, Calibration
+   to-do: uncomment method when in place  
+   -------------------------------------------------------------------- """
+   dt_errors = print_errors(y_test, dt_y_prediction)
+   # dtree_w_p_errors = print_errors(y_test, dtwp_y_prediction)
+   # evaluation.random_forest(y_test, rf_y_prediction)
 
-   evaluation.decision_tree(input)
-   evaluation.decision_tree_with_pruning(input)
-   evaluation.random_forest(input)
-
-   plot_result(input)
-
+   # plot_result(input)
