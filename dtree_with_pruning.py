@@ -13,6 +13,7 @@ def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
 
     dtree = DecisionTreeRegressor(max_depth=max_depth,
                                       random_state=random_state)
+    dtwp_model = dtree
     dtree.fit(X_train, y_train)
 
     # Erstellen einer Liste zum Speichern der ge-prunten Bäume
@@ -41,4 +42,4 @@ def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
     index=tree_scores.argmin()
     pred = tree_array[index].predict(X_test)
 
-    return y_test, pred
+    return y_test, pred, dtwp_model
