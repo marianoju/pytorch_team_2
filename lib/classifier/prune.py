@@ -10,7 +10,7 @@ def prune(inner_tree, index):
     @:param index: the index of the node at which inner_tree is pruned
     """
 
-    # If children nodes exit: traverse edge to children nodes 
+    # If children nodes exit: traverse edge to children nodes
     if inner_tree.children_left[index] != _tree.TREE_LEAF:
         prune(inner_tree, inner_tree.children_left[index])
         prune(inner_tree, inner_tree.children_right[index])
@@ -30,18 +30,18 @@ def prune(inner_tree, index):
 
 
     else:
-        # If there are no children nodes: prune leaf 
+        # If there are no children nodes: prune leaf
         inner_tree.n_node_samples[index] = 0
 
 
 def determine_alpha(tree):
     """
-    Given a regression tree, the relevant penalty scalars gk are 
-    determined for pruning. Every inner node of the tree is visit to 
-    evaluate the penalty scalar gk that would make pruning in each node 
+    Given a regression tree, the relevant penalty scalars gk are
+    determined for pruning. Every inner node of the tree is visit to
+    evaluate the penalty scalar gk that would make pruning in each node
     reasonable. The minimum gk is returned
     @:param tree: sk-learn tree object
-    @:returns the index and corresponding values of the minimal gk found 
+    @:returns the index and corresponding values of the minimal gk found
     in the tree (alpha)
     """
     min_gk = sys.maxsize
@@ -68,9 +68,9 @@ def determine_alpha(tree):
 
 def _calc_impurity(tree, index):
     """
-    _calc_impurity is a recursive function for calculating the absolute 
-    impurity of any subtree. The absolute impurity is calculated by the 
-    impurity of every leaf-node scaled with the number of samples per 
+    _calc_impurity is a recursive function for calculating the absolute
+    impurity of any subtree. The absolute impurity is calculated by the
+    impurity of every leaf-node scaled with the number of samples per
     node.
     @:param tree: sk-learn tree object
     @:param index: the index of the root node of the subtree
@@ -78,14 +78,14 @@ def _calc_impurity(tree, index):
     """
 
     # print("index: ", index, " impurity: ", d_tree.tree_.n_node_samples[index] * tree.impurity[index] / 10^7)
-    # If there are children nodes: include children node 
+    # If there are children nodes: include children node
     if tree.children_left[index] != _tree.TREE_LEAF:
         impurity_left, leafs_left = _calc_impurity(tree, tree.children_left[index])
         impurity_right, leafs_right = _calc_impurity(tree, tree.children_right[index])
 
         return impurity_left + impurity_right, leafs_left + leafs_right
 
-    # If there are no children nodes, this means current node is a leaf 
+    # If there are no children nodes, this means current node is a leaf
     else:
         # print("index: ", index, " cost: ", d_tree.tree_.n_node_samples[index] * tree.impurity[index]/10^7)
         return tree.n_node_samples[index] * tree.impurity[index], 1
