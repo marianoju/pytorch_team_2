@@ -36,7 +36,7 @@ if __name__ == '__main__':
    to-do: uncomment method when in place 
    -------------------------------------------------------------------- """
    y_test, dt_y_prediction = decision_tree(X_train, X_test, y_train, y_test)
-   y_test, dtwp_y_prediction = dtree_with_pruning(X_train, X_test, y_train, y_test)
+   y_test, dtwp_y_prediction = dtree_with_pruning(X_train, X_test, y_train, y_test,max_depth=13,random_state=13)
    # y_test, rf_y_prediction = random_forest(X_train, X_test, y_train, y_test)
 
    """ --------------------------------------------------------------------
@@ -46,7 +46,7 @@ if __name__ == '__main__':
    to-do: uncomment method when in place  
    -------------------------------------------------------------------- """
    dt_errors = print_errors(y_test, dt_y_prediction)
-   # dtree_w_p_errors = print_errors(y_test, dtwp_y_prediction)
+   dtree_w_p_errors = print_errors(y_test, dtwp_y_prediction)
    # rf_errors = print_errors(y_test, rf_y_prediction)
 
    """ --------------------------------------------------------------------
