@@ -2,7 +2,8 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
-def preprocessing(data):
+def preprocessing():
+    data = pd.read_csv("data/housing.csv", na_values='')
     cleaned_data = data.copy()
 
     """ --------------------------------------------------------------------
@@ -40,8 +41,21 @@ def preprocessing(data):
     cleaned_data = pd.concat([data_numerical, cleaned_data[categorical],
                               data[target]], axis=1, sort=False)
 
-    return cleaned_data
+    """ --------------------------------------------------------------------
+    we define features and target
+    -------------------------------------------------------------------- """
+    data_X = cleaned_data.drop("median_house_value", axis=1)  # features
+    data_y = cleaned_data["median_house_value"]  # target, or: dependent variable
+
+    """ --------------------------------------------------------------------
+    we split the dataset pseudo-randomly into training and testing subsets.
+    -------------------------------------------------------------------- """
+    X_train, X_test, y_train, y_test = train_test_split(data_X, data_y,
+                                                        test_size=0.2,
+                                                        random_state=11)
+
+    return X_train, X_test, y_train, y_test
 
 if __name__ == '__main__':
-    print("preprocessing() takes one input: data ")
-    print("and returns as output: cleaned_data")
+    print("preprocessing() requires no input ")
+    print("and returns as output: X_train, X_test, y_train, y_test")
