@@ -19,6 +19,7 @@ population of 600 to 3,000 people).
 # import necessary libraries only here
 from preprocessing import preprocessing
 from decision_tree import decision_tree
+from random_forest import random_forest
 from evaluation import print_errors
 from dtree_with_pruning import dtree_with_pruning
 
@@ -35,9 +36,15 @@ if __name__ == '__main__':
    and returns as output: test, predicted 
    to-do: uncomment method when in place 
    -------------------------------------------------------------------- """
-   y_test, dt_y_prediction = decision_tree(X_train, X_test, y_train, y_test)
-   y_test, dtwp_y_prediction = dtree_with_pruning(X_train, X_test, y_train, y_test,max_depth=13,random_state=13)
-   # y_test, rf_y_prediction = random_forest(X_train, X_test, y_train, y_test)
+
+   y_test, dt_y_prediction, dt_model = decision_tree(X_train, X_test, y_train, y_test,
+                                           max_depth=13, random_state=11)
+   y_test, dtwp_y_prediction = dtree_with_pruning(X_train, X_test, y_train, y_test,
+                                                  max_depth=13,random_state=13)
+   y_test, rf_y_prediction, rf_model = random_forest(X_train, X_test, y_train, y_test,
+                                           max_depth=10, random_state=11,
+                                           n_estimators=40, min_samples_leaf = 3,
+                                           warm_start=True)
 
    """ --------------------------------------------------------------------
    Each method is evaluated by testing the prediction of the model  
@@ -45,11 +52,10 @@ if __name__ == '__main__':
    MSE, RMSE, R2, RMSE % of mean, Calibration
    to-do: uncomment method when in place  
    -------------------------------------------------------------------- """
-   dt_errors = print_errors(y_test, dt_y_prediction)
-   dtree_w_p_errors = print_errors(y_test, dtwp_y_prediction)
-   # rf_errors = print_errors(y_test, rf_y_prediction)
+   dt_errors = print_errors(y_test, dt_y_prediction, dt_model)
+   dtwp_errors = print_errors(y_test, dtwp_y_prediction, dtwp_model)
+   rf_errors = print_errors(y_test, rf_y_prediction, rf_model)
 
    """ --------------------------------------------------------------------
    to-do: Errors of each model could be plotted here for visualization...
    -------------------------------------------------------------------- """
-
