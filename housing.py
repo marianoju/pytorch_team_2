@@ -21,7 +21,7 @@ from preprocessing import preprocessing
 from decision_tree import decision_tree
 from random_forest import random_forest
 from evaluation import print_errors
-from dtree_with_pruning_faster import dtree_with_pruning
+from dtree_with_pruning import dtree_with_pruning
 
 if __name__ == '__main__':
 
