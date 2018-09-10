@@ -35,8 +35,8 @@ if __name__ == '__main__':
    to-do: uncomment method when in place 
    -------------------------------------------------------------------- """
    y_test, dt_y_prediction = decision_tree(X_train, X_test, y_train, y_test)
-   # decision_tree_with_pruning(X_train, X_test, y_train, y_test)
-   # random_forest(X_train, X_test, y_train, y_test)
+   # y_test, dtwp_y_prediction = dtree_with_pruning(X_train, X_test, y_train, y_test)
+   # y_test, rf_y_prediction = random_forest(X_train, X_test, y_train, y_test)
 
    """ --------------------------------------------------------------------
    Each method is evaluated by testing the prediction of the model  
@@ -46,6 +46,9 @@ if __name__ == '__main__':
    -------------------------------------------------------------------- """
    dt_errors = print_errors(y_test, dt_y_prediction)
    # dtree_w_p_errors = print_errors(y_test, dtwp_y_prediction)
-   # evaluation.random_forest(y_test, rf_y_prediction)
+   # rf_errors = print_errors(y_test, rf_y_prediction)
 
-   # plot_result(input)
+   """ --------------------------------------------------------------------
+   to-do: Errors of each model could be plotted here for visualization...
+   -------------------------------------------------------------------- """
+
