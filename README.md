@@ -8,5 +8,5 @@
 
 
 ## Projects 
-- [Housing](https://github.com/maddosz12/pytorch_team_2/housing)
-- [IMDB](https://github.com/maddosz12/pytorch_team_2/imdb)
+- [Housing](https://github.com/maddosz12/pytorch_team_2/tree/master/housing)
+- [IMDB](https://github.com/maddosz12/pytorch_team_2/tree/master/imdb)
