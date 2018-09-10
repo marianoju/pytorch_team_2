@@ -57,8 +57,6 @@ def determine_alpha(tree):
         node_impurity = tree.n_node_samples[node_idx] * tree.impurity[node_idx]
         subtree_impurity, subtree_leafs = _calc_impurity(tree, node_idx)
 
-        print('IDX: ', node_idx, 'NI: ', node_impurity, 'STI: ', subtree_impurity, 'STL: ', subtree_leafs)
-
         gk = (node_impurity - subtree_impurity) / (subtree_leafs - 1.)
 
         if gk < min_gk:

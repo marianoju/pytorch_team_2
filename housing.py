@@ -20,6 +20,7 @@ population of 600 to 3,000 people).
 from preprocessing import preprocessing
 from decision_tree import decision_tree
 from evaluation import print_errors
+from dtree_with_pruning import dtree_with_pruning
 
 if __name__ == '__main__':
 
@@ -35,7 +36,7 @@ if __name__ == '__main__':
    to-do: uncomment method when in place 
    -------------------------------------------------------------------- """
    y_test, dt_y_prediction = decision_tree(X_train, X_test, y_train, y_test)
-   # y_test, dtwp_y_prediction = dtree_with_pruning(X_train, X_test, y_train, y_test)
+   y_test, dtwp_y_prediction = dtree_with_pruning(X_train, X_test, y_train, y_test)
    # y_test, rf_y_prediction = random_forest(X_train, X_test, y_train, y_test)
 
    """ --------------------------------------------------------------------
