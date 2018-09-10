@@ -2,8 +2,10 @@ import numpy as np
 from sklearn.metrics import mean_squared_error, r2_score
 
 
-def print_errors(test, predicted, model):
+def print_errors(test, predicted, model, fit_time, pred_time):
     print(model)
+    print("Fit finished in: " + str(fit_time) + "s")
+    print("Prediciton finished in: " + str(pred_time) + "s")
     print("")
     print("--------------" + " start " + "--------------")
     print("MSE: ", mean_squared_error(test, predicted))

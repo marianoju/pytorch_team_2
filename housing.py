@@ -20,7 +20,7 @@ population of 600 to 3,000 people).
 from preprocessing import preprocessing
 from decision_tree import decision_tree
 from random_forest import random_forest
-from dtree_with_pruning import dtree_with_pruning
+from dtree_with_pruning import dtree_with_pruning, dtree_with_pruning_faster
 from evaluation import print_errors
 
 
@@ -37,14 +37,15 @@ if __name__ == '__main__':
     to-do: uncomment method when in place 
     ----------------------------------------------------------------- """
 
-    y_test, dt_y_prediction, dt_model = decision_tree(X_train, X_test, y_train, y_test,
-                                            max_depth=13, random_state=11)
-    y_test, dtwp_y_prediction, dtwp_model = dtree_with_pruning(X_train, X_test, y_train, y_test,
-                                                               max_depth=13,random_state=13)
-    y_test, rf_y_prediction, rf_model = random_forest(X_train, X_test, y_train, y_test,
-                                                      max_depth=10, random_state=11,
-                                                      n_estimators=40, min_samples_leaf = 3,
-                                                      warm_start=True)
+    y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time = decision_tree(
+        X_train, X_test, y_train, y_test, max_depth=13, random_state=11)
+    y_test, dtwp_y_prediction, dtwp_model, dtwp_fit_time, dtwp_pred_time = dtree_with_pruning(
+        X_train, X_test, y_train, y_test, max_depth=13,random_state=11)
+    y_test, dtwpf_y_prediction, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time = dtree_with_pruning_faster(
+        X_train, X_test, y_train, y_test, max_depth=13,random_state=11)
+    y_test, rf_y_prediction, rf_model, rf_fit_time, rf_pred_time = random_forest(
+        X_train, X_test, y_train, y_test, max_depth=13, random_state=11, n_estimators=40,
+        min_samples_leaf=3, warm_start=True)
 
     """ -----------------------------------------------------------------
     Each method is evaluated by testing the prediction of the model  
@@ -52,9 +53,10 @@ if __name__ == '__main__':
     MSE, RMSE, R2, RMSE % of mean, Calibration
     to-do: uncomment method when in place  
     ----------------------------------------------------------------- """
-    dt_errors = print_errors(y_test, dt_y_prediction, dt_model)
-    dtwp_errors = print_errors(y_test, dtwp_y_prediction, dtwp_model)
-    rf_errors = print_errors(y_test, rf_y_prediction, rf_model)
+    dt_errors = print_errors(y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time)
+    dtwp_errors = print_errors(y_test, dtwp_y_prediction, dtwp_model, dtwp_fit_time, dtwp_pred_time)
+    dtwpf_errors = print_errors(y_test, dtwpf_y_prediction, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time)
+    rf_errors = print_errors(y_test, rf_y_prediction, rf_model, rf_fit_time, rf_pred_time)
 
     """ -----------------------------------------------------------------
     to-do: Errors of each model could be plotted here for visualization. 
