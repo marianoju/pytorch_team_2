@@ -1,0 +1,45 @@
+DecisionTreeRegressor(criterion='mse', max_depth=13, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+-------------- start --------------
+MSE:  3956486215.701011
+RMSE:  62900.60584526203
+R2:  0.7059650028998214
+RMSE % of mean: 0.2989780452320951
+Calibration: 0.9919129199953234
+--------------- end ---------------
+
+
+DecisionTreeRegressor(criterion='mse', max_depth=13, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=13, splitter='best')
+
+-------------- start --------------
+MSE:  3601821994.7969007
+RMSE:  60015.18136935771
+R2:  0.732322656504486
+RMSE % of mean: 0.2852630967371166
+Calibration: 0.9900052120586886
+--------------- end ---------------
+
+
+RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=10,
+           max_features='auto', max_leaf_nodes=None,
+           min_impurity_decrease=0.0, min_impurity_split=None,
+           min_samples_leaf=3, min_samples_split=2,
+           min_weight_fraction_leaf=0.0, n_estimators=40, n_jobs=1,
+           oob_score=False, random_state=11, verbose=0, warm_start=True)
+
+-------------- start --------------
+MSE:  2888494002.536673
+RMSE:  53744.71139132364
+R2:  0.785335199124592
+RMSE % of mean: 0.2554584099375795
+Calibration: 0.9906330223565362
+--------------- end ---------------
+
