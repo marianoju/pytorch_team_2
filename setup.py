@@ -17,7 +17,7 @@ setup(
     description='Neue Fische - Data Science',
 
     # The project's main homepage.
-    url='',
+    url='https://github.com/maddosz12/pytorch_team_2',
 
     # Author details
     author='Matthias Rettenmeier',
