@@ -3,7 +3,11 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 
 def print_errors(test, predicted, model, fit_time, pred_time):
+    print("")
+    print("================================ start ================================")
+    print("")
     print(model)
+    print("")
     print("Fit finished in: " + str(fit_time) + " s")
     print("Prediction finished in: " + str(pred_time) + " s")
     print("")
@@ -13,6 +17,6 @@ def print_errors(test, predicted, model, fit_time, pred_time):
     print("R2: ", r2_score(test, predicted))
     print("RMSE % of mean:", np.sqrt(((test - predicted) ** 2).mean()) / test.mean())
     print("Calibration:", predicted.mean() / test.mean())
-    print("---------------" + " end " + "---------------")
     print("")
+    print("================================  end  ================================")
     print("")
