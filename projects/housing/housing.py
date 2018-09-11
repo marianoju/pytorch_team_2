@@ -38,11 +38,11 @@ if __name__ == '__main__':
     ----------------------------------------------------------------- """
 
     y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time = decision_tree(
-        X_train, X_test, y_train, y_test, max_depth=10, random_state=11)
+        X_train, X_test, y_train, y_test, max_depth=13, random_state=11)
     y_test, dtwp_y_prediction, dtwp_model, dtwp_fit_time, dtwp_pred_time = dtree_with_pruning(
-        X_train, X_test, y_train, y_test, max_depth=5,random_state=11)
+        X_train, X_test, y_train, y_test, max_depth=13,random_state=11)
     y_test, dtwpf_y_prediction, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time = dtree_with_pruning_faster(
-        X_train, X_test, y_train, y_test, max_depth=5,random_state=11)
+        X_train, X_test, y_train, y_test, max_depth=13,random_state=11)
     y_test, rf_y_prediction, rf_model, rf_fit_time, rf_pred_time = random_forest(
         X_train, X_test, y_train, y_test, max_depth=13, random_state=11, n_estimators=40,
         min_samples_leaf=3, warm_start=True)
