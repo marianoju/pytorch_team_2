@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
-def preprocessing():
+def preprocessing_housing():
     data = pd.read_csv("data/housing.csv", na_values='')
     cleaned_data = data.copy()
 

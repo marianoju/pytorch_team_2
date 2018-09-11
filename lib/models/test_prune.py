@@ -4,7 +4,7 @@ import numpy as np
 
 from sklearn.tree import DecisionTreeRegressor
 
-from classifier.prune_faster import prune
+from models.prune_faster import prune
 
 
 class TestPrune(TestCase):
