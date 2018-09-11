@@ -15,7 +15,7 @@ def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
 
     dtree = DecisionTreeRegressor(max_depth=max_depth,
                                       random_state=random_state)
-    dtwp_model = "Pruning (Legacy): \n" + str(dtree)
+    dtwp_model = str(dtree) + "\n\nwith Pruning (Legacy) "
 
     dtwp_fit_start = time.time()
     dtree.fit(X_train, y_train)
@@ -58,19 +58,19 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
                       random_state=None):
 
     # Initiate model
-    d_tree = DecisionTreeRegressor(max_depth=max_depth,
+    dtree = DecisionTreeRegressor(max_depth=max_depth,
                                       random_state=random_state)
-    dtwpf_model = "Pruning (Faster): \n" + str(d_tree)
+    dtwpf_model = str(dtree) + "\n\nwith Pruning (Faster) "
 
     # Fit model
     dtwpf_fit_start = time.time()
-    d_tree.fit(X_train, y_train)
+    dtree.fit(X_train, y_train)
     dtwpf_fit_end = time.time()
     dtwpf_fit_time = dtwpf_fit_end - dtwpf_fit_start
 
     dtwpf_pred_start = time.time()
     # Pruning trees
-    tree_pruner = models.prune_faster.TreePruner(d_tree)
+    tree_pruner = models.prune_faster.TreePruner(dtree)
     tree_pruner.run()
 
     # Calculating errors
@@ -84,8 +84,9 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
         y_pred_train = tree.predict(X_train)
         train_errors.append(mean_squared_error(y_train, y_pred_train))
 
-    #pd.DataFrame(test_errors).to_csv("results/test_errors_dtwpf.csv", index=False)
-    #pd.DataFrame(train_errors).to_csv("results/train_errors_dtwpf.csv", index=False)
+    # uncomment to export errors to CSV file
+    # pd.DataFrame(test_errors).to_csv("results/test_errors_dtwpf.csv", index=False)
+    # pd.DataFrame(train_errors).to_csv("results/train_errors_dtwpf.csv", index=False)
 
     # Find the best tree based on test data
     test_errors_np = np.array(test_errors)

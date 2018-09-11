@@ -11,7 +11,7 @@ def decision_tree(X_train, X_test, y_train, y_test, *, max_depth=None,
 
     dTree = DecisionTreeRegressor(max_depth=max_depth,
                                   random_state=random_state)
-    dt_model = "without Pruning: \n" + str(dTree)
+    dt_model = str(dTree) + "\n\nwithout Pruning "
 
     dt_fit_start = time.time()
     dTree.fit(X_train, y_train)

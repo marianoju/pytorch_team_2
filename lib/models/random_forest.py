@@ -26,7 +26,7 @@ def random_forest(X_train, X_test, y_train, y_test, *, n_estimators=10,
                                 bootstrap=bootstrap, oob_score=oob_score,
                                 n_jobs=n_jobs, random_state=random_state,
                                 verbose=verbose, warm_start=warm_start)
-    rf_model = regr
+    rf_model = str(regr)
 
     rf_fit_start = time.time()
     regr.fit(X_train, y_train)

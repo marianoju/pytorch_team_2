@@ -22,7 +22,7 @@ from models.decision_tree import decision_tree
 from models.random_forest import random_forest
 from models.dtree_with_pruning import dtree_with_pruning, dtree_with_pruning_faster
 from evaluation import print_errors
-from models.SVM import svm_regression
+from models.svm import svm_regression
 
 
 if __name__ == '__main__':
@@ -48,7 +48,7 @@ if __name__ == '__main__':
         X_train, X_test, y_train, y_test, max_depth=3, random_state=11, n_estimators=40,
         min_samples_leaf=3, warm_start=True)
     y_test, svmr_y_prediction, svmr_model, svmr_fit_time, svmr_pred_time = svm_regression(
-        X_train,X_test,y_train,y_test)
+        X_train, X_test, y_train, y_test)
 
     """ -----------------------------------------------------------------
     Each method is evaluated by testing the prediction of the model  
