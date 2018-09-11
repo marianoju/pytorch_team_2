@@ -1,0 +1,18 @@
+/home/user/anaconda3/envs/neue-fische/bin/python /home/user/Documents/GitHub/maddosz12/pytorch_team_2/projects/IMDB/IMDB.py
+without Pruning: 
+DecisionTreeRegressor(criterion='mse', max_depth=10, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+Fit finished in: 122.93481826782227 s
+Prediction finished in: 12.45734977722168 s
+
+-------------- start --------------
+R2:  0.24129359326504785
+--------------- end ---------------
+
+
+
+Process finished with exit code 0
+

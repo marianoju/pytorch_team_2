@@ -3,3 +3,4 @@
 .ipynb_checkpoints
 __pycache__
 /data/
+projects/IMDB/results/data/.gitkeep
