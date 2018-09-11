@@ -1,0 +1,74 @@
+without Pruning: 
+DecisionTreeRegressor(criterion='mse', max_depth=10, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+Fit finished in: 0.10556530952453613s
+Prediction finished in: 0.0016179084777832031s
+
+-------------- start --------------
+MSE:  3931621483.560372
+RMSE:  62702.643353852094
+R2:  0.7078128802951366
+RMSE % of mean: 0.2980370934254207
+Calibration: 0.9923367687642551
+--------------- end ---------------
+
+
+Pruning (Legacy): 
+DecisionTreeRegressor(criterion='mse', max_depth=10, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+Fit finished in: 0.1033179759979248s
+Prediction finished in: 33.00782775878906s
+
+-------------- start --------------
+MSE:  3737760300.944403
+RMSE:  61137.225165560165
+R2:  0.7222201015416344
+RMSE % of mean: 0.29059637542887784
+Calibration: 0.9879558051807422
+--------------- end ---------------
+
+
+Pruning (Faster): 
+DecisionTreeRegressor(criterion='mse', max_depth=10, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+Fit finished in: 0.1082148551940918s
+Prediction finished in: 12.310791254043579s
+
+-------------- start --------------
+MSE:  3737760300.944403
+RMSE:  61137.225165560165
+R2:  0.7222201015416344
+RMSE % of mean: 0.29059637542887784
+Calibration: 0.9879558051807422
+--------------- end ---------------
+
+
+RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=10,
+           max_features='auto', max_leaf_nodes=None,
+           min_impurity_decrease=0.0, min_impurity_split=None,
+           min_samples_leaf=3, min_samples_split=2,
+           min_weight_fraction_leaf=0.0, n_estimators=40, n_jobs=1,
+           oob_score=False, random_state=11, verbose=0, warm_start=True)
+Fit finished in: 2.6582624912261963s
+Prediction finished in: 0.017146825790405273s
+
+-------------- start --------------
+MSE:  2888494002.536673
+RMSE:  53744.71139132364
+R2:  0.785335199124592
+RMSE % of mean: 0.2554584099375795
+Calibration: 0.9906330223565362
+--------------- end ---------------
+
+
+
+Process finished with exit code 0
