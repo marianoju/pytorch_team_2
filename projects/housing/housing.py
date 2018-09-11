@@ -12,7 +12,7 @@ A block group is the smallest geographical unit for which the U.S.
 Census Bureau publishes sample data (a block group typically has a 
 population of 600 to 3,000 people). 
 
-[1] https://github.com/ageron/handson-ml/tree/master/datasets/results
+[1] https://github.com/ageron/handson-ml/tree/master/datasets/housing
 [2] http://www.dcc.fc.up.pt/%7Eltorgo/Regression/cal_housing.html
 --------------------------------------------------------------------- """
 
