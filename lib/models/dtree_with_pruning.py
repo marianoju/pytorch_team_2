@@ -84,8 +84,8 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
         y_pred_train = tree.predict(X_train)
         train_errors.append(mean_squared_error(y_train, y_pred_train))
 
-    pd.DataFrame(test_errors).to_csv("results/test_errors_dtwpf.csv", index=False)
-    pd.DataFrame(train_errors).to_csv("results/train_errors_dtwpf.csv", index=False)
+    #pd.DataFrame(test_errors).to_csv("results/test_errors_dtwpf.csv", index=False)
+    #pd.DataFrame(train_errors).to_csv("results/train_errors_dtwpf.csv", index=False)
 
     # Find the best tree based on test data
     test_errors_np = np.array(test_errors)
