@@ -17,10 +17,10 @@ population of 600 to 3,000 people).
 --------------------------------------------------------------------- """
 
 # import necessary libraries only here
-from preprocessing import preprocessing
-from decision_tree import decision_tree
-from random_forest import random_forest
-from dtree_with_pruning import dtree_with_pruning, dtree_with_pruning_faster
+from features.preprocessing import preprocessing_housing
+from models.decision_tree import decision_tree
+from models.random_forest import random_forest
+from models.dtree_with_pruning import dtree_with_pruning, dtree_with_pruning_faster
 from evaluation import print_errors
 
 
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     Preprocessing takes an input: data
     and returns as output: X_train, X_test, y_train, y_test 
     ----------------------------------------------------------------- """
-    X_train, X_test, y_train, y_test = preprocessing()
+    X_train, X_test, y_train, y_test = preprocessing_housing('../../data/housing.csv')
 
     """ -----------------------------------------------------------------
     Each method takes an input: X_train, X_test, y_train, y_test
