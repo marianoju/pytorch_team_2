@@ -1,3 +1,12 @@
+# excludes content of specified directories from GitHub (language) statistics 
+# see https://github.com/github/linguist/blob/master/lib/linguist/vendor.yml
 /projects/*/data/* linguist-vendored
 /projects/*/results/* linguist-vendored
+
+# more exclusions but file-type based 
+(^|/).csv linguist-vendored
+(^|/).jpg linguist-vendored
+(^|/).png linguist-vendored
+(^|/).txt linguist-vendored
+(^|/).log linguist-vendored
 
