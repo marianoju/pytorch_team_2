@@ -1,5 +1,4 @@
 import pandas as pd
-
 from sklearn.preprocessing import StandardScaler,MinMaxScaler
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.preprocessing import OneHotEncoder
@@ -46,4 +45,3 @@ def reencode_to_binary(data, column):
                      axis=1)
     data = data.drop(column, axis=1)
     return data
-

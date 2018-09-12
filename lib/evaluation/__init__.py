@@ -19,3 +19,17 @@ def print_errors(test, predicted, model, fit_time, pred_time):
     print("")
     print("================================  end  ================================")
     print("")
+
+def print_errors_classified(test, predicted, model, fit_time, pred_time):
+    print("")
+    print("================================ start ================================")
+    print("")
+    print(model)
+    print("")
+    print("Fit finished in: " + str(fit_time) + " s")
+    print("Prediction finished in: " + str(pred_time) + " s")
+    print("")
+    print("R2: ", r2_score(test, predicted))
+    print("")
+    print("================================  end  ================================")
+    print("")

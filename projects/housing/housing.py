@@ -17,7 +17,7 @@ population of 600 to 3,000 people).
 --------------------------------------------------------------------- """
 
 # import necessary libraries only here
-from features.preprocessing import preprocessing_housing
+from features.preprocessing_housing import preprocessing_housing
 from models.decision_tree import decision_tree
 from models.random_forest import random_forest
 from models.dtree_with_pruning import dtree_with_pruning, dtree_with_pruning_faster
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     """ -----------------------------------------------------------------
     Each method takes an input: X_train, X_test, y_train, y_test
     and returns as output: test, predicted 
-    to-do: uncomment method when in place 
+    TODO: uncomment method when in place 
     ----------------------------------------------------------------- """
 
     y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time = decision_tree(
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     Each method is evaluated by testing the prediction of the model  
     on a test subset and returns as output: 
     MSE, RMSE, R2, RMSE % of mean, Calibration
-    to-do: uncomment method when in place  
+    TODO: uncomment method when in place  
     ----------------------------------------------------------------- """
     dt_errors = print_errors(y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time)
     dtwp_errors = print_errors(y_test, dtwp_y_prediction, dtwp_model, dtwp_fit_time, dtwp_pred_time)
@@ -63,5 +63,6 @@ if __name__ == '__main__':
     svmr_errors = print_errors(y_test, svmr_y_prediction, svmr_model, svmr_fit_time, svmr_pred_time)
 
     """ -----------------------------------------------------------------
-    to-do: Errors of each model could be plotted here for visualization. 
+    TODO: Errors of each model could be plotted here for visualization. 
     ----------------------------------------------------------------- """
+
