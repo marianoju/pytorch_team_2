@@ -35,7 +35,7 @@ if __name__ == '__main__':
     """ -----------------------------------------------------------------
     Each method takes an input: X_train, X_test, y_train, y_test
     and returns as output: test, predicted 
-    to-do: uncomment method when in place 
+    TODO: uncomment method when in place 
     ----------------------------------------------------------------- """
 
     y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time = decision_tree(
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     Each method is evaluated by testing the prediction of the model  
     on a test subset and returns as output: 
     MSE, RMSE, R2, RMSE % of mean, Calibration
-    to-do: uncomment method when in place  
+    TODO: uncomment method when in place  
     ----------------------------------------------------------------- """
     dt_errors = print_errors(y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time)
     dtwp_errors = print_errors(y_test, dtwp_y_prediction, dtwp_model, dtwp_fit_time, dtwp_pred_time)
