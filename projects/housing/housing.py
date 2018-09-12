@@ -17,7 +17,7 @@ population of 600 to 3,000 people).
 --------------------------------------------------------------------- """
 
 # import necessary libraries only here
-from features.preprocessing import preprocessing_housing
+from features.preprocessing_housing import preprocessing_housing
 from models.decision_tree import decision_tree
 from models.random_forest import random_forest
 from models.dtree_with_pruning import dtree_with_pruning, dtree_with_pruning_faster
@@ -63,5 +63,6 @@ if __name__ == '__main__':
     svmr_errors = print_errors(y_test, svmr_y_prediction, svmr_model, svmr_fit_time, svmr_pred_time)
 
     """ -----------------------------------------------------------------
-    to-do: Errors of each model could be plotted here for visualization. 
+    TODO: Errors of each model could be plotted here for visualization. 
     ----------------------------------------------------------------- """
+
