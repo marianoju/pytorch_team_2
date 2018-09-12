@@ -1,5 +1,5 @@
 from features.preprocessing_imdb import load_data
-from models.dtree.decision_tree import decision_tree
+from models.dtree.decision_tree import decision_tree_classifier
 from evaluation import print_errors_classified
 from models.ensemble import ensemble_classification
 
@@ -11,7 +11,7 @@ X_test = X_test [:2000]
 y_test = y_test[:2000]
 y_train = y_train [:2000]
 
-y_test, y_prediction, model, fit_time, pred_time = decision_tree(
+y_test, y_prediction, model, fit_time, pred_time = decision_tree_classifier(
     X_train, X_test, y_train, y_test, max_depth=10, random_state=11)
 
 print_errors_classified(y_test, y_prediction, model, fit_time, pred_time)
