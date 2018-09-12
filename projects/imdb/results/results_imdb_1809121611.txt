@@ -1,0 +1,48 @@
+/home/user/anaconda3/envs/neue-fische/bin/python /home/user/Documents/GitHub/maddosz12/pytorch_team_2/projects/imdb/imdb.py
+/home/user/anaconda3/envs/neue-fische/lib/python3.6/site-packages/sklearn/ensemble/weight_boosting.py:29: DeprecationWarning: numpy.core.umath_tests is an internal NumPy module and should not be imported. It will be removed in a future NumPy release.
+  from numpy.core.umath_tests import inner1d
+
+================================ start ================================
+
+DecisionTreeRegressor(criterion='mse', max_depth=10, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+without Pruning 
+
+Fit finished in: 10.90890121459961 s
+Prediction finished in: 0.055153608322143555 s
+
+R2:  0.10373391768286944
+
+================================  end  ================================
+
+/home/user/anaconda3/envs/neue-fische/lib/python3.6/site-packages/sklearn/preprocessing/label.py:95: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/home/user/anaconda3/envs/neue-fische/lib/python3.6/site-packages/sklearn/preprocessing/label.py:128: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+
+/home/user/anaconda3/envs/neue-fische/lib/python3.6/site-packages/sklearn/preprocessing/label.py:151: DeprecationWarning: The truth value of an empty array is ambiguous. Returning False, but in future this will result in an error. Use `array.size > 0` to check that an array is not empty.
+================================ start ================================
+  if diff:
+
+VotingClassifier(estimators=[('Logistic Regression', LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=11, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)),...f',
+  max_iter=-1, probability=False, random_state=11, shrinking=True,
+  tol=0.001, verbose=False))],
+         flatten_transform=None, n_jobs=1, voting='hard', weights=None)
+
+Fit finished in: 95.9508125782013 s
+Prediction finished in: 128.6502504348755 s
+
+R2:  0.06593665406883797
+
+================================  end  ================================
+
+
+Process finished with exit code 0
+
