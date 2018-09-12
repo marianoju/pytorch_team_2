@@ -1,9 +1,8 @@
 import copy
 import numpy as np
-import pandas as pd
 from sklearn.tree import DecisionTreeRegressor
-import models.prune
-import models.prune_faster
+import models.dtree.prune
+import models.dtree.prune_faster
 from sklearn.metrics import mean_squared_error
 import time
 
@@ -32,8 +31,8 @@ def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
 
     while num_nodes > 1:
         tree_array.append(copy.deepcopy(tree_array[k - 1]))
-        min_node_idx, min_gk = models.prune.determine_alpha(tree_array[k].tree_)
-        models.prune.prune(tree_array[k].tree_, min_node_idx)
+        min_node_idx, min_gk = models.dtree.prune.determine_alpha(tree_array[k].tree_)
+        models.dtree.prune.prune(tree_array[k].tree_, min_node_idx)
         num_nodes = sum(1 * (tree_array[k].tree_.n_node_samples != 0))
         k += 1
 
@@ -70,7 +69,7 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
 
     dtwpf_pred_start = time.time()
     # Pruning trees
-    tree_pruner = models.prune_faster.TreePruner(dtree)
+    tree_pruner = models.dtree.prune_faster.TreePruner(dtree)
     tree_pruner.run()
 
     # Calculating errors

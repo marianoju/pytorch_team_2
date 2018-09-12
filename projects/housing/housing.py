@@ -18,9 +18,9 @@ population of 600 to 3,000 people).
 
 # import necessary libraries only here
 from features.preprocessing_housing import preprocessing_housing
-from models.decision_tree import decision_tree
-from models.random_forest import random_forest
-from models.dtree_with_pruning import dtree_with_pruning, dtree_with_pruning_faster
+from models.dtree.decision_tree import decision_tree
+from models.dtree.random_forest import random_forest
+from models.dtree.dtree_with_pruning import dtree_with_pruning, dtree_with_pruning_faster
 from evaluation import print_errors
 from models.svm import svm_regression
 

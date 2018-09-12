@@ -1,5 +1,5 @@
 from features.preprocessing_imdb import load_data
-from models.decision_tree import decision_tree
+from models.dtree.decision_tree import decision_tree
 from evaluation import print_errors_classified
 from models.ensemble import ensemble_classification
 
