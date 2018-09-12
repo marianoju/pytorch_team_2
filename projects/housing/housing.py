@@ -34,8 +34,7 @@ if __name__ == '__main__':
 
     """ -----------------------------------------------------------------
     Each method takes an input: X_train, X_test, y_train, y_test
-    and returns as output: test, predicted 
-    TODO: uncomment method when in place 
+    and returns as output: test, predicted, model, fit_time, pred_time  
     ----------------------------------------------------------------- """
 
     y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time = decision_tree(
@@ -48,13 +47,12 @@ if __name__ == '__main__':
         X_train, X_test, y_train, y_test, max_depth=3, random_state=11, n_estimators=40,
         min_samples_leaf=3, warm_start=True)
     y_test, svmr_y_prediction, svmr_model, svmr_fit_time, svmr_pred_time = svm_regression(
-        X_train, X_test, y_train, y_test)
+        X_train, X_test, y_train, y_test, C=100)
 
     """ -----------------------------------------------------------------
     Each method is evaluated by testing the prediction of the model  
     on a test subset and returns as output: 
     MSE, RMSE, R2, RMSE % of mean, Calibration
-    TODO: uncomment method when in place  
     ----------------------------------------------------------------- """
     dt_errors = print_errors(y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time)
     dtwp_errors = print_errors(y_test, dtwp_y_prediction, dtwp_model, dtwp_fit_time, dtwp_pred_time)
@@ -65,4 +63,3 @@ if __name__ == '__main__':
     """ -----------------------------------------------------------------
     TODO: Errors of each model could be plotted here for visualization. 
     ----------------------------------------------------------------- """
-

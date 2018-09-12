@@ -1,0 +1,110 @@
+/home/user/anaconda3/envs/neue-fische/bin/python /home/user/Documents/GitHub/maddosz12/pytorch_team_2/projects/housing/housing.py
+/home/user/anaconda3/envs/neue-fische/lib/python3.6/site-packages/sklearn/ensemble/weight_boosting.py:29: DeprecationWarning: numpy.core.umath_tests is an internal NumPy module and should not be imported. It will be removed in a future NumPy release.
+  from numpy.core.umath_tests import inner1d
+
+================================ start ================================
+
+DecisionTreeRegressor(criterion='mse', max_depth=3, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+without Pruning 
+
+Fit finished in: 0.03751778602600098 s
+Prediction finished in: 0.0005984306335449219 s
+
+MSE:  5954378524.166585
+RMSE:  77164.61963987502
+R2:  0.5574872306798924
+RMSE % of mean: 0.3667775028711548
+Calibration: 0.9834360216533791
+
+================================  end  ================================
+
+
+================================ start ================================
+
+DecisionTreeRegressor(criterion='mse', max_depth=3, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+with Pruning (Legacy) 
+
+Fit finished in: 0.034326791763305664 s
+Prediction finished in: 0.007513284683227539 s
+
+MSE:  5954378524.166585
+RMSE:  77164.61963987502
+R2:  0.5574872306798924
+RMSE % of mean: 0.3667775028711548
+Calibration: 0.9834360216533791
+
+================================  end  ================================
+
+
+================================ start ================================
+
+DecisionTreeRegressor(criterion='mse', max_depth=3, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+with Pruning (Faster) 
+
+Fit finished in: 0.03166532516479492 s
+Prediction finished in: 0.03982710838317871 s
+
+MSE:  5954378524.166585
+RMSE:  77164.61963987502
+R2:  0.5574872306798924
+RMSE % of mean: 0.3667775028711548
+Calibration: 0.9834360216533791
+
+================================  end  ================================
+
+
+================================ start ================================
+
+RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=3,
+           max_features='auto', max_leaf_nodes=None,
+           min_impurity_decrease=0.0, min_impurity_split=None,
+           min_samples_leaf=3, min_samples_split=2,
+           min_weight_fraction_leaf=0.0, n_estimators=40, n_jobs=1,
+           oob_score=False, random_state=11, verbose=0, warm_start=True)
+
+Fit finished in: 0.8475840091705322 s
+Prediction finished in: 0.006227016448974609 s
+
+MSE:  5756333334.469132
+RMSE:  75870.50371830368
+R2:  0.5722053956383104
+RMSE % of mean: 0.3606263340018604
+Calibration: 0.9859259888848849
+
+================================  end  ================================
+
+
+================================ start ================================
+
+SVR(C=100, cache_size=200, coef0=0.0, degree=3, epsilon=0.1, gamma='auto',
+  kernel='rbf', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
+
+Fit finished in: 40.508809328079224 s
+Prediction finished in: 7.284785509109497 s
+
+MSE:  9042851905.271345
+RMSE:  95093.9109789441
+R2:  0.32796052133529385
+RMSE % of mean: 0.4519986927932131
+Calibration: 0.8595413891221226
+
+================================  end  ================================
+
+
+Process finished with exit code 0
+
