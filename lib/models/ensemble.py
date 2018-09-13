@@ -6,8 +6,8 @@ from sklearn.svm import SVC
 import time
 
 
-def ensemble_classification (X_train, X_test, y_train, y_test,*, n_neighbors=5,max_depth=None,
-                             min_samples_leaf=0.1,C=1.0,degree=3,gamma='auto',random_state = None):
+def ensemble_classification (X_train, X_test, y_train, y_test, *, n_neighbors=5, max_depth=None,
+                             min_samples_leaf=0.1, C=1.0, degree=3, gamma='auto', random_state = None):
 
     # Instantiate LogisticRegression
     lr = LogisticRegression(random_state=random_state)
@@ -16,10 +16,10 @@ def ensemble_classification (X_train, X_test, y_train, y_test,*, n_neighbors=5,m
     knn = KNeighborsClassifier(n_neighbors=n_neighbors)
 
     # Instantiate DecisionTreeClassifier
-    dt = DecisionTreeClassifier(max_depth=max_depth,min_samples_leaf=min_samples_leaf, random_state=random_state)
+    dt = DecisionTreeClassifier(max_depth=max_depth, min_samples_leaf=min_samples_leaf, random_state=random_state)
 
     # Instantiate SVMC
-    svmc = SVC(random_state=random_state,C=C,degree=degree,gamma=gamma)
+    svmc = SVC(random_state=random_state, C=C, degree=degree, gamma=gamma)
 
     # Define the list classifiers
     classifiers = [('Logistic Regression', lr), ('K Nearest Neighbours', knn),
