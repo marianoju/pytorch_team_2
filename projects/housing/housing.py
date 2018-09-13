@@ -17,12 +17,20 @@ population of 600 to 3,000 people).
 --------------------------------------------------------------------- """
 
 # import necessary libraries only here
+from typing import List, Any
+
 from features.preprocessing_housing import preprocessing_housing
 from models.dtree.decision_tree import decision_tree
 from models.dtree.random_forest import random_forest
 from models.dtree.dtree_with_pruning import dtree_with_pruning, dtree_with_pruning_faster
 from evaluation import print_errors
 from models.svm import svm_regression
+import pandas as pd
+import projects.housing.config as config
+import datetime
+
+
+
 
 
 if __name__ == '__main__':
@@ -37,8 +45,14 @@ if __name__ == '__main__':
     and returns as output: test, predicted, model, fit_time, pred_time  
     ----------------------------------------------------------------- """
 
+    y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time = decision_tree(X_train, X_test, y_train, y_test, max_depth=3, random_state=11)
+
     y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time = decision_tree(
-        X_train, X_test, y_train, y_test, max_depth=3, random_state=11)
+        X_train, X_test, y_train, y_test, max_depth=5, random_state=11)
+
+    y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time = decision_tree(
+        X_train, X_test, y_train, y_test, max_depth=10, random_state=11)
+
     y_test, dtwp_y_prediction, dtwp_model, dtwp_fit_time, dtwp_pred_time = dtree_with_pruning(
         X_train, X_test, y_train, y_test, max_depth=3,random_state=11)
     y_test, dtwpf_y_prediction, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time = dtree_with_pruning_faster(
@@ -54,11 +68,20 @@ if __name__ == '__main__':
     on a test subset and returns as output: 
     MSE, RMSE, R2, RMSE % of mean, Calibration
     ----------------------------------------------------------------- """
-    dt_errors = print_errors(y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time)
-    dtwp_errors = print_errors(y_test, dtwp_y_prediction, dtwp_model, dtwp_fit_time, dtwp_pred_time)
-    dtwpf_errors = print_errors(y_test, dtwpf_y_prediction, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time)
-    rf_errors = print_errors(y_test, rf_y_prediction, rf_model, rf_fit_time, rf_pred_time)
-    svmr_errors = print_errors(y_test, svmr_y_prediction, svmr_model, svmr_fit_time, svmr_pred_time)
+    df = pd.DataFrame(config.results, columns = ['Model', 'Fit Time', 'Prediction Time', 'MSE', 'RMSE', 'R2', 'RMSE of Mean', 'Calibration'])
+
+    textstring = 'results/results_housing'+str(datetime.datetime.now())+'.csv'
+    df.to_csv(textstring, index=False)
+    print('Results stored in:', textstring)
+
+    print(df)
+
+    # dt_errors = print_errors(y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time)
+    # dtwp_errors = print_errors(y_test, dtwp_y_prediction, dtwp_model, dtwp_fit_time, dtwp_pred_time)
+    # dtwpf_errors = print_errors(y_test, dtwpf_y_prediction, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time)
+    # rf_errors = print_errors(y_test, rf_y_prediction, rf_model, rf_fit_time, rf_pred_time)
+    # svmr_errors = print_errors(y_test, svmr_y_prediction, svmr_model, svmr_fit_time, svmr_pred_time)
+    print('end.')
 
     """ -----------------------------------------------------------------
     TODO: Errors of each model could be plotted here for visualization. 

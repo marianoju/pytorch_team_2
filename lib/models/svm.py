@@ -1,5 +1,6 @@
 from sklearn.svm import SVC,SVR
 import time
+import evaluation
 
 
 def svm_regression(X_train, X_test, y_train, y_test, *, kernel='rbf', degree=3, gamma='auto', coef0=0.0,
@@ -16,6 +17,8 @@ def svm_regression(X_train, X_test, y_train, y_test, *, kernel='rbf', degree=3, 
     pred = svmr.predict(X_test)
     svmr_pred_end = time.time()
     svmr_pred_time = svmr_pred_end - svmr_pred_start
+
+    evaluation.save_errors(y_test, pred, svmr_model, svmr_fit_time, svmr_pred_time)
 
     return y_test, pred, svmr_model, svmr_fit_time, svmr_pred_time
 
@@ -39,5 +42,7 @@ def svm_classification(X_train, X_test, y_train, y_test, *, C=1.0, kernel='rbf',
     pred = svmc.predict(X_test)
     svmc_pred_end = time.time()
     svmc_pred_time = svmc_pred_end - svmc_pred_start
+
+    evaluation.save_errors_classified(y_test, pred, svmc_model, svmc_fit_time, svmc_pred_time)
 
     return y_test, pred, svmc_model, svmc_fit_time, svmc_pred_time
