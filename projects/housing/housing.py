@@ -40,21 +40,21 @@ if __name__ == '__main__':
     and returns as output: test, predicted, model, fit_time, pred_time
     ----------------------------------------------------------------- """
 
-    # decision_tree(X_train, X_test, y_train, y_test,
-    #               max_depth=3, random_state=11)
-    #
-    # decision_tree(X_train, X_test, y_train, y_test,
-    #               max_depth=5, random_state=11)
-    #
-    # decision_tree(X_train, X_test, y_train, y_test,
-    #               max_depth=10, random_state=11)
+    decision_tree(X_train, X_test, y_train, y_test,
+                  max_depth=3, random_state=11)
 
-    # dtree_with_pruning(X_train, X_test, y_train, y_test,
-    #                    max_depth=3, random_state=11)
-    #
-    # dtree_with_pruning_faster(X_train, X_test, y_train, y_test,
-    #                           max_depth=3, random_state=11)
-    #
+    decision_tree(X_train, X_test, y_train, y_test,
+                  max_depth=5, random_state=11)
+
+    decision_tree(X_train, X_test, y_train, y_test,
+                  max_depth=10, random_state=11)
+
+    dtree_with_pruning(X_train, X_test, y_train, y_test,
+                       max_depth=3, random_state=11)
+
+    dtree_with_pruning_faster(X_train, X_test, y_train, y_test,
+                              max_depth=3, random_state=11)
+
     random_forest(X_train, X_test, y_train, y_test,
                   max_depth=3,
                   random_state=11,

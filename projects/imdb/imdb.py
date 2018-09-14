@@ -15,15 +15,15 @@ y_test = y_test[:2000]
 y_train = y_train[:2000]
 
 decision_tree_classifier(X_train, X_test, y_train, y_test,
-    max_depth=10,
-    random_state=11)
+                         max_depth=10,
+                         random_state=11)
 
 random_forest_classifier(X_train, X_test, y_train, y_test,
-    max_depth=3,
-    random_state=11,
-    n_estimators=40,
-    min_samples_leaf=3,
-    warm_start=True)
+                         max_depth=3,
+                         random_state=11,
+                         n_estimators=40,
+                         min_samples_leaf=3,
+                         warm_start=True)
 
 # Ensemble Learning
 ensemble_classification(X_train, X_test, y_train, y_test, random_state=11, min_samples_leaf=0.05)  # noqa: E501
