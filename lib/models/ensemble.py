@@ -37,21 +37,21 @@ def ensemble_classification(X_train, X_test, y_train, y_test, *,
 
     # Instantiate VotingClassifier
     vc = VotingClassifier(estimators=classifiers)
-    en_model = vc
+    model = vc
 
     # Fit vc to the training set
-    en_fit_start = time.time()
+    fit_start = time.time()
     vc.fit(X_train, y_train)
-    en_fit_end = time.time()
-    en_fit_time = en_fit_end - en_fit_start
+    fit_end = time.time()
+    fit_time = fit_end - fit_start
 
     # Evaluate the test set predictions
-    en_pred_start = time.time()
+    pred_start = time.time()
     y_pred = vc.predict(X_test)
-    en_pred_end = time.time()
-    en_pred_time = en_pred_end - en_pred_start
+    pred_end = time.time()
+    pred_time = pred_end - pred_start
 
     evaluation.save_errors_classified(
-        y_test, y_pred, en_model, en_fit_time, en_pred_time)
-
-    return y_test, y_pred, en_model, en_fit_time, en_pred_time
+        y_test, y_pred, model, fit_time, pred_time)
+    evaluation.print_errors_classified(
+        y_test, y_pred, model, fit_time, pred_time)

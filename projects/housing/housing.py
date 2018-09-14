@@ -21,10 +21,10 @@ from features.preprocessing_housing import preprocessing_housing
 from models.dtree.decision_tree import decision_tree
 from models.dtree.random_forest import random_forest
 from models.dtree.dtree_with_pruning import dtree_with_pruning, \
-                                            dtree_with_pruning_faster
+    dtree_with_pruning_faster
 from models.svm import svm_regression
 import pandas as pd
-import projects.housing.config as config
+import projects.globalvar as globalvar
 import datetime
 
 
@@ -79,14 +79,13 @@ if __name__ == '__main__':
         'RMSE of Mean',
         'Calibration'
     ]
-    df = pd.DataFrame(config.results, columns=columns)
+    df = pd.DataFrame(globalvar.results, columns=columns)
 
-    textstring = 'results/results_housing'+str(datetime.datetime.now())+'.csv'
-    df.to_csv(textstring, index=False)
-    print('Results stored in:', textstring)
-
-    print(df)
-    print('end.')
+    filename = 'results/results_housing_' \
+               + str(datetime.datetime.now()) \
+               + '.csv'
+    df.to_csv(filename, index=False)
+    print('Results stored in:', filename)
 
     """ -----------------------------------------------------------------
     TODO: Errors of each model could be plotted here for visualization.

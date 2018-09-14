@@ -44,7 +44,7 @@ class TreePruner:
         @:param index: the index of the node at which inner_tree is pruned
         """
 
-        # wenn es 'children' gibt besuche ich die 'children'
+        # if 'children' nodes exist, traverse tree to 'children'
         if inner_tree.children_left[index] != _tree.TREE_LEAF:
             self.prune(inner_tree, inner_tree.children_left[index])
             self.prune(inner_tree, inner_tree.children_right[index])
@@ -66,7 +66,7 @@ class TreePruner:
             self.gks[idx_right] = sys.maxsize
 
         else:
-            # wenn es keine 'children' gibt kann ich prunen
+            # if no 'children' nodes exist, leaf can be pruned
             inner_tree.n_node_samples[index] = 0
             self.gks[index] = sys.maxsize
 
@@ -114,8 +114,7 @@ class TreePruner:
         @:returns impurity and leaf count of subtree
         """
 
-        # print('index: ', index, ' impurity: ', d_tree.tree_.n_node_samples[index] * tree.impurity[index] / 10000000) # noqa: E501
-        # wenn es 'children' besuche die 'children'
+        # if 'children' nodes exist, traverse tree to 'children'
         if tree.children_left[index] != _tree.TREE_LEAF:
             impurity_left, leafs_left = self._calc_impurity(
                 tree, tree.children_left[index])
@@ -124,15 +123,14 @@ class TreePruner:
 
             return impurity_left + impurity_right, leafs_left + leafs_right
 
-        # wenn es keine 'children' gibt bin ich ein leaf Knoten
+        # if no 'children' nodes exist, set index to 1 (=leaf)
         else:
-            # print('index: ', index, ' cost: ', d_tree.tree_.n_node_samples[index] * tree.impurity[index]/10000000) # noqa: E501
             return tree.n_node_samples[index] * tree.impurity[index], 1
 
     def _determine_parents(self, tree, parent_index, index):
         self.parents[index] = parent_index
 
-        # wenn es 'children' besuche die 'children'
+        # if 'children' nodes exist, traverse tree to 'children'
         if tree.children_left[index] != _tree.TREE_LEAF:
             self._determine_parents(tree, index, tree.children_left[index])
             self._determine_parents(tree, index, tree.children_right[index])

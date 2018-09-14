@@ -40,8 +40,8 @@ def svm_regression(X_train, X_test, y_train, y_test, *,
 
     evaluation.save_errors(y_test, pred, svmr_model,
                            svmr_fit_time, svmr_pred_time)
-
-    return y_test, pred, svmr_model, svmr_fit_time, svmr_pred_time
+    evaluation.print_errors(y_test, pred, svmr_model,
+                            svmr_fit_time, svmr_pred_time)
 
 
 def svm_classification(X_train, X_test, y_train, y_test, *,
@@ -87,5 +87,5 @@ def svm_classification(X_train, X_test, y_train, y_test, *,
 
     evaluation.save_errors_classified(
         y_test, pred, svmc_model, svmc_fit_time, svmc_pred_time)
-
-    return y_test, pred, svmc_model, svmc_fit_time, svmc_pred_time
+    evaluation.print_errors_classified(
+        y_test, pred, svmc_model, svmc_fit_time, svmc_pred_time)
