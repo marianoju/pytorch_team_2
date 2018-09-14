@@ -55,8 +55,8 @@ def dtree_with_pruning(X_train, X_test, y_train, y_test, *, max_depth=None,
 
     evaluation.save_errors(y_test, pred, dtwp_model,
                            dtwp_fit_time, dtwp_pred_time)
-
-    return y_test, pred, dtwp_model, dtwp_fit_time, dtwp_pred_time
+    evaluation.print_errors(y_test, pred, dtwp_model,
+                            dtwp_fit_time, dtwp_pred_time)
 
 
 def dtree_with_pruning_faster(X_train, X_test, y_train, y_test, *,
@@ -104,5 +104,5 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test, *,
 
     evaluation.save_errors(y_test, pred, dtwpf_model,
                            dtwpf_fit_time, dtwpf_pred_time)
-
-    return y_test, pred, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time
+    evaluation.print_errors(y_test, pred, dtwpf_model,
+                            dtwpf_fit_time, dtwpf_pred_time)

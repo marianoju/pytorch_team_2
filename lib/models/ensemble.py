@@ -53,5 +53,5 @@ def ensemble_classification(X_train, X_test, y_train, y_test, *,
 
     evaluation.save_errors_classified(
         y_test, y_pred, en_model, en_fit_time, en_pred_time)
-
-    return y_test, y_pred, en_model, en_fit_time, en_pred_time
+    evaluation.print_errors_classified(
+        y_test, y_pred, en_model, en_fit_time, en_pred_time)

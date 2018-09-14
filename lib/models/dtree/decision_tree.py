@@ -14,22 +14,20 @@ def decision_tree(X_train, X_test, y_train, y_test, *, max_depth=None,
 
     dTree = DecisionTreeRegressor(max_depth=max_depth,
                                   random_state=random_state)
-    dt_model = str(dTree) + '\n\nwithout Pruning '
+    model = str(dTree) + '\n\nwithout Pruning '
 
-    dt_fit_start = time.time()
+    fit_start = time.time()
     dTree.fit(X_train, y_train)
-    dt_fit_end = time.time()
-    dt_fit_time = dt_fit_end - dt_fit_start
+    fit_end = time.time()
+    fit_time = fit_end - fit_start
 
-    dt_pred_start = time.time()
+    pred_start = time.time()
     y_prediction = dTree.predict(X_test)
-    dt_pred_end = time.time()
-    dt_pred_time = dt_pred_end - dt_pred_start
+    pred_end = time.time()
+    pred_time = pred_end - pred_start
 
-    evaluation.save_errors(y_test, y_prediction, dt_model,
-                           dt_fit_time, dt_pred_time)
-
-    return y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time
+    evaluation.save_errors(y_test, y_prediction, model,
+                           fit_time, pred_time)
 
 
 def decision_tree_classifier(X_train, X_test, y_train, y_test, *,
@@ -62,25 +60,23 @@ def decision_tree_classifier(X_train, X_test, y_train, y_test, *,
         class_weight=class_weight,
         presort=presort)
 
-    dt_model = str(dTree) + '\n\nwithout Pruning '
+    model = str(dTree) + '\n\nwithout Pruning '
 
-    dt_fit_start = time.time()
+    fit_start = time.time()
     dTree.fit(X_train, y_train)
-    dt_fit_end = time.time()
-    dt_fit_time = dt_fit_end - dt_fit_start
+    fit_end = time.time()
+    fit_time = fit_end - fit_start
 
-    dt_pred_start = time.time()
+    pred_start = time.time()
     y_prediction = dTree.predict(X_test)
-    dt_pred_end = time.time()
-    dt_pred_time = dt_pred_end - dt_pred_start
+    pred_end = time.time()
+    pred_time = pred_end - pred_start
 
     evaluation.save_errors_classified(
-        y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time)
-
-    return y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time
+        y_test, y_prediction, model, fit_time, pred_time)
+    evaluation.print_errors_classified(
+        y_test, y_prediction, model, fit_time, pred_time)
 
 
 if __name__ == '__main__':
-    print('decision_tree() takes input: X_train, X_test, y_train, ')
-    print('y_test and returns as output: y_test, y_prediction, ')
-    print('dt_model, dt_fit_time, dt_pred_time')
+    print('decision_tree() takes input: X_train, X_test, y_train, y_test')

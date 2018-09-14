@@ -3,7 +3,7 @@ import time
 import evaluation
 
 """ --------------------------------------------------------------------
-random_forest() takes input: X_train, X_test, y_train,
+random_forest() takes input: X_train, X_test, y_train, y_test
 fits RandomForestRegressor and returns as output: y_test, y_prediction
 -------------------------------------------------------------------- """
 
@@ -30,22 +30,23 @@ def random_forest(X_train, X_test, y_train, y_test, *, n_estimators=10,
         n_jobs=n_jobs, random_state=random_state,
         verbose=verbose, warm_start=warm_start)
 
-    rf_model = str(regr)
+    model = str(regr)
 
-    rf_fit_start = time.time()
+    fit_start = time.time()
     regr.fit(X_train, y_train)
-    rf_fit_end = time.time()
-    rf_fit_time = rf_fit_end - rf_fit_start
+    fit_end = time.time()
+    fit_time = fit_end - fit_start
 
-    rf_pred_start = time.time()
-    rf_y_prediction = regr.predict(X_test)
-    rf_pred_end = time.time()
-    rf_pred_time = rf_pred_end - rf_pred_start
+    pred_start = time.time()
+    y_prediction = regr.predict(X_test)
+    pred_end = time.time()
+    pred_time = pred_end - pred_start
 
-    evaluation.save_errors(y_test, rf_y_prediction,
-                           rf_model, rf_fit_time, rf_pred_time)
+    evaluation.save_errors(y_test, y_prediction,
+                           model, fit_time, pred_time)
 
-    return y_test, rf_y_prediction, rf_model, rf_fit_time, rf_pred_time
+    evaluation.print_errors(y_test, y_prediction,
+                            model, fit_time, pred_time)
 
 
 def random_forest_classifier(X_train, X_test, y_train, y_test, *,
@@ -86,22 +87,24 @@ def random_forest_classifier(X_train, X_test, y_train, y_test, *,
         warm_start=warm_start,
         class_weight=class_weight)
 
-    rf_model = str(regr)
+    model = str(regr)
 
-    rf_fit_start = time.time()
+    fit_start = time.time()
     regr.fit(X_train, y_train)
-    rf_fit_end = time.time()
-    rf_fit_time = rf_fit_end - rf_fit_start
+    fit_end = time.time()
+    fit_time = rf_fit_end - rf_fit_start
 
-    rf_pred_start = time.time()
-    rf_y_prediction = regr.predict(X_test)
-    rf_pred_end = time.time()
-    rf_pred_time = rf_pred_end - rf_pred_start
+    pred_start = time.time()
+    y_prediction = regr.predict(X_test)
+    pred_end = time.time()
+    pred_time = pred_end - pred_start
 
     evaluation.save_errors_classified(
-        y_test, rf_y_prediction, rf_model, rf_fit_time, rf_pred_time)
+        y_test, y_prediction, model, fit_time, pred_time)
+    evaluation.print_errors_classified(
+        y_test, y_prediction, model, fit_time, pred_time
+    )
 
-    return y_test, rf_y_prediction, rf_model, rf_fit_time, rf_pred_time
 
 
 if __name__ == '__main__':

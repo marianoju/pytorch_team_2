@@ -15,28 +15,20 @@ X_train, X_test, y_train, y_test = load_data()
 # y_test = y_test[:2000]
 # y_train = y_train [:2000]
 
-y_test, y_prediction, model, fit_time, pred_time = decision_tree_classifier(
-    X_train, X_test, y_train, y_test,
+decision_tree_classifier(X_train, X_test, y_train, y_test,
     max_depth=10,
     random_state=11)
 
-print_errors_classified(y_test, y_prediction, model, fit_time, pred_time)
-
-
-y_test, y_prediction, model, fit_time, pred_time = random_forest_classifier(
-    X_train, X_test, y_train, y_test,
+random_forest_classifier(X_train, X_test, y_train, y_test,
     max_depth=3,
     random_state=11,
     n_estimators=40,
     min_samples_leaf=3,
     warm_start=True)
 
-print_errors_classified(y_test, y_prediction, model, fit_time, pred_time)
-
 # Ensemble Learning
-# y_test, en_y_prediction, en_model, en_fit_time, en_pred_time = ensemble_classification(X_train, X_test, y_train, y_test, random_state = 11, min_samples_leaf=0.05) # noqa: E501
+# ensemble_classification(X_train, X_test, y_train, y_test, random_state = 11, min_samples_leaf=0.05) # noqa: E501
 
-# print_errors_classified(y_test, en_y_prediction, en_model, en_fit_time, en_pred_time) # noqa: E501
 
 df = pd.DataFrame(config.results, columns=[
                   'Accuracy Score',
@@ -44,6 +36,6 @@ df = pd.DataFrame(config.results, columns=[
                   'Recall Score',
                   'F1-Score',
                   'Matthews (phi) Score'])
-textstring = 'results/results_imdb'+str(datetime.datetime.now())+'.csv'
-df.to_csv(textstring, index=False)
-print('Results stored in:', textstring)
+filename = 'results/results_imdb' + str(datetime.datetime.now()) + '.csv'
+df.to_csv(filename, index=False)
+print('Results stored in:', filename)
