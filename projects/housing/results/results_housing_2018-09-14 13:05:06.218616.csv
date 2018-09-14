@@ -1,0 +1,44 @@
+Model,Fit Time,Prediction Time,MSE,RMSE,R2,RMSE of Mean,Calibration
+"DecisionTreeRegressor(criterion='mse', max_depth=3, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+without Pruning ",0.058318376541137695,0.0005648136138916016,5954378524.166585,77164.61963987502,0.5574872306798924,0.3667775028711548,0.9834360216533791
+"DecisionTreeRegressor(criterion='mse', max_depth=5, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+without Pruning ",0.0505223274230957,0.0006177425384521484,5150937593.073721,71770.03269522538,0.6171967150467419,0.34113604778702356,0.9855519748660363
+"DecisionTreeRegressor(criterion='mse', max_depth=10, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+without Pruning ",0.09549427032470703,0.0007679462432861328,3931621483.560372,62702.643353852094,0.7078128802951366,0.2980370934254207,0.9923367687642551
+"DecisionTreeRegressor(criterion='mse', max_depth=3, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+with Pruning (Legacy) ",0.034232378005981445,0.010042190551757812,5954378524.166585,77164.61963987502,0.5574872306798924,0.3667775028711548,0.9834360216533791
+"DecisionTreeRegressor(criterion='mse', max_depth=3, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=11, splitter='best')
+
+with Pruning (Faster) ",0.03207850456237793,0.6050574779510498,5954378524.166585,77164.61963987502,0.5574872306798924,0.3667775028711548,0.9834360216533791
+"RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=3,
+           max_features='auto', max_leaf_nodes=None,
+           min_impurity_decrease=0.0, min_impurity_split=None,
+           min_samples_leaf=3, min_samples_split=2,
+           min_weight_fraction_leaf=0.0, n_estimators=40, n_jobs=1,
+           oob_score=False, random_state=11, verbose=0, warm_start=True)",0.9907581806182861,0.006630659103393555,5756333334.469132,75870.50371830368,0.5722053956383104,0.3606263340018604,0.9859259888848849
+"SVR(C=100, cache_size=200, coef0=0.0, degree=3, epsilon=0.1, gamma='auto',
+  kernel='rbf', max_iter=-1, shrinking=True, tol=0.001, verbose=False)",56.2663950920105,9.999254941940308,9042851905.271345,95093.9109789441,0.32796052133529385,0.4519986927932131,0.8595413891221226

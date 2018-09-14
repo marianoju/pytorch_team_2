@@ -42,11 +42,9 @@ def random_forest(X_train, X_test, y_train, y_test, *, n_estimators=10,
     pred_end = time.time()
     pred_time = pred_end - pred_start
 
-    evaluation.save_errors(y_test, y_prediction,
-                           model, fit_time, pred_time)
+    evaluation.save_errors(y_test, y_prediction, model, fit_time, pred_time)
 
-    evaluation.print_errors(y_test, y_prediction,
-                            model, fit_time, pred_time)
+    evaluation.print_errors(y_test, y_prediction, model, fit_time, pred_time)
 
 
 def random_forest_classifier(X_train, X_test, y_train, y_test, *,

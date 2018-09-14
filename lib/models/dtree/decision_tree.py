@@ -4,8 +4,9 @@ import evaluation
 
 
 """ --------------------------------------------------------------------
-decision_tree() takes input: X_train, X_test, y_train,
-fits DecisionTreeRegressor and returns as output: y_test, y_prediction
+decision_tree() takes input: X_train, X_test, y_train, y_test 
+fits DecisionTreeRegressor, computes y_prediction, 
+writes results to 'result' and prints 'errors'
 -------------------------------------------------------------------- """
 
 
@@ -14,7 +15,8 @@ def decision_tree(X_train, X_test, y_train, y_test, *, max_depth=None,
 
     dTree = DecisionTreeRegressor(max_depth=max_depth,
                                   random_state=random_state)
-    model = str(dTree) + '\n\nwithout Pruning '
+
+    model = str(dTree) + '\n\nwithout Pruning'
 
     fit_start = time.time()
     dTree.fit(X_train, y_train)
@@ -26,8 +28,8 @@ def decision_tree(X_train, X_test, y_train, y_test, *, max_depth=None,
     pred_end = time.time()
     pred_time = pred_end - pred_start
 
-    evaluation.save_errors(y_test, y_prediction, model,
-                           fit_time, pred_time)
+    evaluation.save_errors(y_test, y_prediction, model, fit_time, pred_time)
+    evaluation.print_errors(y_test, y_prediction, model, fit_time, pred_time)
 
 
 def decision_tree_classifier(X_train, X_test, y_train, y_test, *,
@@ -80,3 +82,5 @@ def decision_tree_classifier(X_train, X_test, y_train, y_test, *,
 
 if __name__ == '__main__':
     print('decision_tree() takes input: X_train, X_test, y_train, y_test')
+    print('writes results to: result')
+    print('and prints: errors')
