@@ -1,5 +1,7 @@
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
 import time
+import evaluation
+
 
 """ --------------------------------------------------------------------
 decision_tree() takes input: X_train, X_test, y_train, 
@@ -22,6 +24,8 @@ def decision_tree(X_train, X_test, y_train, y_test, *, max_depth=None,
     y_prediction = dTree.predict(X_test)
     dt_pred_end = time.time()
     dt_pred_time = dt_pred_end - dt_pred_start
+
+    evaluation.save_errors(y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time)
 
     return y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time
 
@@ -50,6 +54,8 @@ def decision_tree_classifier(X_train, X_test, y_train, y_test, *, criterion='gin
     y_prediction = dTree.predict(X_test)
     dt_pred_end = time.time()
     dt_pred_time = dt_pred_end - dt_pred_start
+
+    evaluation.save_errors_classified(y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time)
 
     return y_test, y_prediction, dt_model, dt_fit_time, dt_pred_time
 

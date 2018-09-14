@@ -4,6 +4,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 import time
+import evaluation
 
 
 def ensemble_classification (X_train, X_test, y_train, y_test, *, n_neighbors=5, max_depth=None,
@@ -40,5 +41,7 @@ def ensemble_classification (X_train, X_test, y_train, y_test, *, n_neighbors=5,
     y_pred = vc.predict(X_test)
     en_pred_end = time.time()
     en_pred_time = en_pred_end - en_pred_start
+
+    evaluation.save_errors_classified(y_test, y_pred, en_model, en_fit_time, en_pred_time)
 
     return y_test, y_pred, en_model, en_fit_time, en_pred_time

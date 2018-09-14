@@ -5,6 +5,7 @@ import models.dtree.prune
 import models.dtree.prune_faster
 from sklearn.metrics import mean_squared_error
 import time
+import evaluation
 
 
 def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
@@ -51,6 +52,8 @@ def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
     dtwp_pred_end = time.time()
     dtwp_pred_time = dtwp_pred_end - dtwp_pred_start
 
+    evaluation.save_errors(y_test, pred, dtwp_model, dtwp_fit_time, dtwp_pred_time)
+
     return y_test, pred, dtwp_model, dtwp_fit_time, dtwp_pred_time
 
 def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
@@ -94,5 +97,7 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
 
     dtwpf_pred_end = time.time()
     dtwpf_pred_time = dtwpf_pred_end - dtwpf_pred_start
+
+    evaluation.save_errors(y_test, pred, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time)
 
     return y_test, pred, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time
