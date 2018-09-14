@@ -34,7 +34,7 @@ setup(
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
-    #packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+    # packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     package_dir={'': 'lib'},
     packages=find_packages(where=path.join(here, 'lib')),
 
@@ -49,9 +49,9 @@ setup(
     # for example:
     # $ pip install -e .[dev,test]
     extras_require={
-         'dev': ['pytest >= 2.8.5',
-                 'pytest-mock >= 0.11.0',
-                 'pytest-pythonpath >= 0.7'],
+        'dev': ['pytest >= 2.8.5',
+                'pytest-mock >= 0.11.0',
+                'pytest-pythonpath >= 0.7'],
     },
 
     zip_safe=True,

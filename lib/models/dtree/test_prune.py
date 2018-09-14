@@ -13,7 +13,6 @@ class TestPrune(TestCase):
         input_data = np.zeros((12, 2))
         self.target = np.zeros((12, 1))
 
-
         for i in range(0, 12):
             input_data[i][0] = 0.1 * i
             input_data[i][1] = 1 - 0.1 * i
@@ -38,4 +37,3 @@ class TestPrune(TestCase):
         self.assertEquals(sum(self.mytree.tree_.impurity), 1/12 * error)
 
     pass
-
