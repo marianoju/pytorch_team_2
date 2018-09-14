@@ -105,7 +105,6 @@ def random_forest_classifier(X_train, X_test, y_train, y_test, *,
         y_test, y_prediction, model, fit_time, pred_time)
 
 
-
 if __name__ == '__main__':
     print('random_forest() takes input: X_train, X_test, y_train, ')
     print('fits RandomForestRegressor and returns as output: ' +
