@@ -2,7 +2,7 @@
 
 ## About 
 
-We are working on different machine learning projects, see below. Should any questions arise (e.g. where to find datasets used in projects) please feel free to [open a new issue9(https://github.com/maddosz12/pytorch_team_2/issues/new). 
+We are working on different machine learning projects, see below. Should any questions arise (e.g. where to find datasets used in projects) please feel free to [open a new issue](https://github.com/maddosz12/pytorch_team_2/issues/new). 
 
 ## Setup
 
@@ -33,7 +33,7 @@ pytest # tests
 flake8 # codestyle
 ```
 
-See `tox.ini` for settings regarding `flake8`. Should return `0` if all checks are passed successfully.
+See `tox.ini` for settings regarding `flake8`. Should return `0` if all checks are passed successfully. Otherwise execute `autopep8 --diff --recursive --global-config pep8.ini --recursive .` locally and push changes. 
 
 ## Projects 
 - [Housing](https://github.com/maddosz12/pytorch_team_2/tree/master/projects/housing)
