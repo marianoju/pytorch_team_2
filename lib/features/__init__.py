@@ -1,29 +1,29 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler,MinMaxScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.preprocessing import OneHotEncoder
 
 
 def drop_nan(data):
-        data=data.dropna(axis=0, how='any')
-        return data
+    data = data.dropna(axis=0, how='any')
+    return data
 
 
-def scaling(method,X_train,X_test):
-    if method == "Standard":
+def scaling(method, X_train, X_test):
+    if method == 'Standard':
         scaler = StandardScaler()
         scaler.fit(X_train)
         X_train = scaler.transform(X_train)
         X_test = scaler.transform(X_test)
-    if method == "MinMax":
+    if method == 'MinMax':
         min_max_scaler = MinMaxScaler()
         min_max_scaler.fit(X_train)
         X_train = min_max_scaler.transform(X_train)
         X_test = min_max_scaler.transform(X_test)
-    return X_train,X_test
+    return X_train, X_test
 
 
-def polynomial_features(X,degree):
+def polynomial_features(X, degree):
     poly_features = PolynomialFeatures(degree=degree)
     X_poly = poly_features.fit_transform(X)
     return X_poly
@@ -41,7 +41,11 @@ def reencode_to_binary(data, column):
     np_cat_1hot = cat_1hot.toarray()
     pd_cat_1hot = pd.DataFrame(np_cat_1hot)
     pd_cat_1hot = pd_cat_1hot.add_prefix(column)
-    data = pd.concat([data.reset_index(drop=True), pd_cat_1hot.reset_index(drop=True)],
-                     axis=1)
+    data = pd.concat(
+        [
+            data.reset_index(drop=True),
+            pd_cat_1hot.reset_index(drop=True)
+        ],
+        axis=1)
     data = data.drop(column, axis=1)
     return data

@@ -28,7 +28,6 @@ def prune(inner_tree, index):
         inner_tree.impurity[idx_left] = 0
         inner_tree.impurity[idx_right] = 0
 
-
     else:
         # If there are no children nodes: prune leaf
         inner_tree.n_node_samples[index] = 0
@@ -77,17 +76,17 @@ def _calc_impurity(tree, index):
     @:returns impurity and leaf count of subtree
     """
 
-    # print("index: ", index, " impurity: ", d_tree.tree_.n_node_samples[index] * tree.impurity[index] / 10^7)
+    # print('index: ', index, ' impurity: ', d_tree.tree_.n_node_samples[index] * tree.impurity[index] / 10^7) # noqa: E501
     # If there are children nodes: include children node
     if tree.children_left[index] != _tree.TREE_LEAF:
-        impurity_left, leafs_left = _calc_impurity(tree, tree.children_left[index])
-        impurity_right, leafs_right = _calc_impurity(tree, tree.children_right[index])
+        impurity_left, leafs_left = _calc_impurity(
+            tree, tree.children_left[index])
+        impurity_right, leafs_right = _calc_impurity(
+            tree, tree.children_right[index])
 
         return impurity_left + impurity_right, leafs_left + leafs_right
 
     # If there are no children nodes, this means current node is a leaf
     else:
-        # print("index: ", index, " cost: ", d_tree.tree_.n_node_samples[index] * tree.impurity[index]/10^7)
+        # print('index: ', index, ' cost: ', d_tree.tree_.n_node_samples[index] * tree.impurity[index]/10^7) # noqa: E501
         return tree.n_node_samples[index] * tree.impurity[index], 1
-
-

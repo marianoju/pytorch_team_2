@@ -8,14 +8,14 @@ import time
 import evaluation
 
 
-def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
-                      random_state=None):
+def dtree_with_pruning(X_train, X_test, y_train, y_test, *, max_depth=None,
+                       random_state=None):
 
     # Erstellen und Trainieren des ursprünglichen Baumes
 
     dtree = DecisionTreeRegressor(max_depth=max_depth,
-                                      random_state=random_state)
-    dtwp_model = str(dtree) + "\n\nwith Pruning (Legacy) "
+                                  random_state=random_state)
+    dtwp_model = str(dtree) + '\n\nwith Pruning (Legacy) '
 
     dtwp_fit_start = time.time()
     dtree.fit(X_train, y_train)
@@ -32,7 +32,8 @@ def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
 
     while num_nodes > 1:
         tree_array.append(copy.deepcopy(tree_array[k - 1]))
-        min_node_idx, min_gk = models.dtree.prune.determine_alpha(tree_array[k].tree_)
+        min_node_idx, min_gk = models.dtree.prune.determine_alpha(
+            tree_array[k].tree_)
         models.dtree.prune.prune(tree_array[k].tree_, min_node_idx)
         num_nodes = sum(1 * (tree_array[k].tree_.n_node_samples != 0))
         k += 1
@@ -42,27 +43,30 @@ def dtree_with_pruning(X_train, X_test, y_train, y_test,*,max_depth=None,
 
     for i in range(0, len(tree_array)):
         pred = tree_array[i].predict(X_test)
-        #predictlist.append(tree_array[i].score(X_test, y_test))
+        # predictlist.append(tree_array[i].score(X_test, y_test))
         predictlist.append(mean_squared_error(y_test, pred))
 
     tree_scores = np.array(predictlist)
-    index=tree_scores.argmin()
+    index = tree_scores.argmin()
     pred = tree_array[index].predict(X_test)
 
     dtwp_pred_end = time.time()
     dtwp_pred_time = dtwp_pred_end - dtwp_pred_start
 
-    evaluation.save_errors(y_test, pred, dtwp_model, dtwp_fit_time, dtwp_pred_time)
+    evaluation.save_errors(y_test, pred, dtwp_model,
+                           dtwp_fit_time, dtwp_pred_time)
 
     return y_test, pred, dtwp_model, dtwp_fit_time, dtwp_pred_time
 
-def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
-                      random_state=None):
+
+def dtree_with_pruning_faster(X_train, X_test, y_train, y_test, *,
+                              max_depth=None,
+                              random_state=None):
 
     # Initiate model
     dtree = DecisionTreeRegressor(max_depth=max_depth,
-                                      random_state=random_state)
-    dtwpf_model = str(dtree) + "\n\nwith Pruning (Faster) "
+                                  random_state=random_state)
+    dtwpf_model = str(dtree) + '\n\nwith Pruning (Faster) '
 
     # Fit model
     dtwpf_fit_start = time.time()
@@ -87,8 +91,8 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
         train_errors.append(mean_squared_error(y_train, y_pred_train))
 
     # uncomment to export errors to CSV file
-    # pd.DataFrame(test_errors).to_csv("results/test_errors_dtwpf.csv", index=False)
-    # pd.DataFrame(train_errors).to_csv("results/train_errors_dtwpf.csv", index=False)
+    # pd.DataFrame(test_errors).to_csv('results/test_errors_dtwpf.csv', index=False) # noqa: E501
+    # pd.DataFrame(train_errors).to_csv('results/train_errors_dtwpf.csv', index=False) # noqa: E501
 
     # Find the best tree based on test data
     test_errors_np = np.array(test_errors)
@@ -98,6 +102,7 @@ def dtree_with_pruning_faster(X_train, X_test, y_train, y_test,*,max_depth=None,
     dtwpf_pred_end = time.time()
     dtwpf_pred_time = dtwpf_pred_end - dtwpf_pred_start
 
-    evaluation.save_errors(y_test, pred, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time)
+    evaluation.save_errors(y_test, pred, dtwpf_model,
+                           dtwpf_fit_time, dtwpf_pred_time)
 
     return y_test, pred, dtwpf_model, dtwpf_fit_time, dtwpf_pred_time

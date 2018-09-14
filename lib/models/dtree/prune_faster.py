@@ -65,12 +65,10 @@ class TreePruner:
             self.gks[idx_left] = sys.maxsize
             self.gks[idx_right] = sys.maxsize
 
-
         else:
             # wenn es keine 'children' gibt kann ich prunen
             inner_tree.n_node_samples[index] = 0
             self.gks[index] = sys.maxsize
-
 
     def _calc_gk(self, tree, node_idx):
         node_impurity = tree.n_node_samples[node_idx] * tree.impurity[node_idx]
@@ -78,11 +76,12 @@ class TreePruner:
 
         return (node_impurity - subtree_impurity) / (subtree_leafs - 1.)
 
-
     def _determine_gks(self, tree):
         """
-        Given a regression tree, the relevant penalty scalars gk are determined for pruning. Every
-        inner node of the tree is visit to evaluate the penalty scalar gk that would make pruning in each node reasonable.
+        Given a regression tree, the relevant penalty scalars gk are determined
+        for pruning. Every
+        inner node of the tree is visit to evaluate the penalty scalar gk that
+        would make pruning in each node reasonable.
         The gks are stored in self.gks
         @:param tree: sk-learn tree object
         """
@@ -97,7 +96,6 @@ class TreePruner:
             self.gks[node_idx] = self._calc_gk(tree, node_idx)
         return
 
-
     def _update_gks(self, tree, index):
 
         while index != 0:
@@ -105,27 +103,30 @@ class TreePruner:
             self.gks[parent_index] = self._calc_gk(tree, parent_index)
             index = parent_index
 
-
     def _calc_impurity(self, tree, index):
         """
-        Calc_impurity is a recursive function for calculating the absolute impurity of any subtree.
-        The absolute impurity is calculated by the impurity of every leaf-node scaled with the number of samples per node.
+        Calc_impurity is a recursive function for calculating the absolute
+        impurity of any subtree.
+        The absolute impurity is calculated by the impurity of every leaf-node
+        scaled with the number of samples per node.
         @:param tree: sk-learn tree object
         @:param index: the index of the root node of the subtree
         @:returns impurity and leaf count of subtree
         """
 
-        # print("index: ", index, " impurity: ", d_tree.tree_.n_node_samples[index] * tree.impurity[index] / 10000000)
+        # print('index: ', index, ' impurity: ', d_tree.tree_.n_node_samples[index] * tree.impurity[index] / 10000000) # noqa: E501
         # wenn es 'children' besuche die 'children'
         if tree.children_left[index] != _tree.TREE_LEAF:
-            impurity_left, leafs_left = self._calc_impurity(tree, tree.children_left[index])
-            impurity_right, leafs_right = self._calc_impurity(tree, tree.children_right[index])
+            impurity_left, leafs_left = self._calc_impurity(
+                tree, tree.children_left[index])
+            impurity_right, leafs_right = self._calc_impurity(
+                tree, tree.children_right[index])
 
             return impurity_left + impurity_right, leafs_left + leafs_right
 
         # wenn es keine 'children' gibt bin ich ein leaf Knoten
         else:
-            # print("index: ", index, " cost: ", d_tree.tree_.n_node_samples[index] * tree.impurity[index]/10000000)
+            # print('index: ', index, ' cost: ', d_tree.tree_.n_node_samples[index] * tree.impurity[index]/10000000) # noqa: E501
             return tree.n_node_samples[index] * tree.impurity[index], 1
 
     def _determine_parents(self, tree, parent_index, index):
