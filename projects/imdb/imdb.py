@@ -37,7 +37,7 @@ df = pd.DataFrame(globalvar.results, columns=[
                   'F1-Score',
                   'Matthews (phi) Score'])
 filename = 'results/results_imdb_' \
-           + str(datetime.datetime.now()) \
+           + datetime.now().strftime("%Y-%m-%d_%H%M%S_%u") \
            + '.csv'
 df.to_csv(filename, index=False)
 print('Results stored in:', filename)

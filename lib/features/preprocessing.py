@@ -1,9 +1,6 @@
-# TODO:
-# import pandas as pd
-# from sklearn.preprocessing import StandardScaler
-# from sklearn.model_selection import train_test_split
-
 # TODO: This preprocessing() is only a template/draft for a generalized function
+#
+#
 # def preprocessing():
 #    return X_train, X_test, y_train, y_test
 

@@ -64,6 +64,6 @@ def save_errors_classified(test, predicted, model, fit_time, pred_time):
     recallscore = recall_score(test, predicted)
     f1score = f1_score(test, predicted)
 
-    result = [accuracyscore, precisionscore,
+    result = [model, fit_time, pred_time, accuracyscore, precisionscore,
               recallscore, f1score, matthewscorr]
     globalvar.results.append(result)

@@ -25,7 +25,7 @@ from models.dtree.dtree_with_pruning import dtree_with_pruning, \
 from models.svm import svm_regression
 import pandas as pd
 import projects.globalvar as globalvar
-import datetime
+from datetime import datetime
 
 
 if __name__ == '__main__':
@@ -82,7 +82,7 @@ if __name__ == '__main__':
     df = pd.DataFrame(globalvar.results, columns=columns)
 
     filename = 'results/results_housing_' \
-               + str(datetime.datetime.now()) \
+               + datetime.now().strftime("%Y-%m-%d_%H%M%S_%u") \
                + '.csv'
     df.to_csv(filename, index=False)
     print('Results stored in:', filename)
