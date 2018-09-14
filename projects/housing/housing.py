@@ -21,7 +21,7 @@ from features.preprocessing_housing import preprocessing_housing
 from models.dtree.decision_tree import decision_tree
 from models.dtree.random_forest import random_forest
 from models.dtree.dtree_with_pruning import dtree_with_pruning, \
-                                            dtree_with_pruning_faster
+    dtree_with_pruning_faster
 from models.svm import svm_regression
 import pandas as pd
 import projects.globalvar as globalvar

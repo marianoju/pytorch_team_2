@@ -4,8 +4,8 @@ import evaluation
 
 
 """ --------------------------------------------------------------------
-decision_tree() takes input: X_train, X_test, y_train, y_test 
-fits DecisionTreeRegressor, computes y_prediction, 
+decision_tree() takes input: X_train, X_test, y_train, y_test
+fits DecisionTreeRegressor, computes y_prediction,
 writes results to 'result' and prints 'errors'
 -------------------------------------------------------------------- """
 
