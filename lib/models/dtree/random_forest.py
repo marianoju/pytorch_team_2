@@ -92,7 +92,7 @@ def random_forest_classifier(X_train, X_test, y_train, y_test, *,
     fit_start = time.time()
     regr.fit(X_train, y_train)
     fit_end = time.time()
-    fit_time = rf_fit_end - rf_fit_start
+    fit_time = fit_end - fit_start
 
     pred_start = time.time()
     y_prediction = regr.predict(X_test)
@@ -102,8 +102,7 @@ def random_forest_classifier(X_train, X_test, y_train, y_test, *,
     evaluation.save_errors_classified(
         y_test, y_prediction, model, fit_time, pred_time)
     evaluation.print_errors_classified(
-        y_test, y_prediction, model, fit_time, pred_time
-    )
+        y_test, y_prediction, model, fit_time, pred_time)
 
 
 
