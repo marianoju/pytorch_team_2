@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, \
     classification_report, matthews_corrcoef, \
     precision_score, recall_score, f1_score
-import projects.globalvar as config
+import projects.globalvar as globalvar
 
 
 def print_errors(test, predicted, model, fit_time, pred_time):
@@ -53,7 +53,7 @@ def save_errors(test, predicted, model, fit_time, pred_time):
     cal = predicted.mean() / test.mean()
 
     result = [model, fit_time, pred_time, mse, rmse, r2, rmseom, cal]
-    config.results.append(result)
+    globalvar.results.append(result)
 
 
 def save_errors_classified(test, predicted, model, fit_time, pred_time):
@@ -66,4 +66,4 @@ def save_errors_classified(test, predicted, model, fit_time, pred_time):
 
     result = [accuracyscore, precisionscore,
               recallscore, f1score, matthewscorr]
-    config.results.append(result)
+    globalvar.results.append(result)
