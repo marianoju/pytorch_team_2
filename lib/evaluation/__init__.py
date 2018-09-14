@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, \
     classification_report, matthews_corrcoef, \
     precision_score, recall_score, f1_score
-import projects.housing.config as config
+import projects.globalvar as config
 
 
 def print_errors(test, predicted, model, fit_time, pred_time):

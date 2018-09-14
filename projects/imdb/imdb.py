@@ -3,7 +3,7 @@ from models.dtree.decision_tree import decision_tree_classifier
 from models.dtree.random_forest import random_forest_classifier
 from models.ensemble import ensemble_classification
 import pandas as pd
-import projects.housing.config as config
+import projects.globalvar as globalvar
 import datetime
 
 # Daten laden
@@ -29,7 +29,7 @@ random_forest_classifier(X_train, X_test, y_train, y_test,
 ensemble_classification(X_train, X_test, y_train, y_test, random_state=11, min_samples_leaf=0.05)  # noqa: E501
 
 
-df = pd.DataFrame(config.results, columns=[
+df = pd.DataFrame(globalvar.results, columns=[
                   'Accuracy Score',
                   'Precision Score',
                   'Recall Score',

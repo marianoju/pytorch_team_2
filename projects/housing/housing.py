@@ -24,7 +24,7 @@ from models.dtree.dtree_with_pruning import dtree_with_pruning, \
                                             dtree_with_pruning_faster
 from models.svm import svm_regression
 import pandas as pd
-import projects.housing.config as config
+import projects.globalvar as globalvar
 import datetime
 
 
@@ -79,7 +79,7 @@ if __name__ == '__main__':
         'RMSE of Mean',
         'Calibration'
     ]
-    df = pd.DataFrame(config.results, columns=columns)
+    df = pd.DataFrame(globalvar.results, columns=columns)
 
     filename = 'results/results_housing' + str(datetime.datetime.now()) + '.csv'
     df.to_csv(filename, index=False)
