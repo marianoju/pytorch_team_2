@@ -33,7 +33,7 @@ pytest # tests
 flake8 # codestyle
 ```
 
-See `tox.ini` for settings regarding `flake8`. Should return `0` if all checks are passed successfully. Otherwise execute `autopep8 --diff --recursive --global-config pep8.ini --recursive .` locally and push changes. 
+See `tox.ini` for settings regarding `flake8`. Should return `0` if all checks are passed successfully. Otherwise execute `autopep8 --diff --global-config pep8.ini --recursive .` locally and push changes. 
 
 ## Projects 
 - [Housing](https://github.com/maddosz12/pytorch_team_2/tree/master/projects/housing)
