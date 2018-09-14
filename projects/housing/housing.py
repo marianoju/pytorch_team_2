@@ -82,7 +82,7 @@ if __name__ == '__main__':
     df = pd.DataFrame(globalvar.results, columns=columns)
 
     filename = 'results/results_housing_' \
-               + datetime.now().strftime("%Y-%m-%d_%H%M%S_%u") \
+               + datetime.now().strftime('%Y-%m-%d_%H%M%S_%u') \
                + '.csv'
     df.to_csv(filename, index=False)
     print('Results stored in:', filename)
