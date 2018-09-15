@@ -1,15 +1,13 @@
 from unittest import TestCase
-
 import numpy as np
-
 from sklearn.tree import DecisionTreeRegressor
 
-from models.dtree.prune_faster import prune
+from models.dtree.prune import prune
 
 
 class TestPrune(TestCase):
 
-    def set_up_test_tree(self):
+    def setUp(self):
         input_data = np.zeros((12, 2))
         self.target = np.zeros((12, 1))
 
@@ -34,6 +32,4 @@ class TestPrune(TestCase):
         for i in range(0, 12):
             error += (mean-self.target[i])**2
 
-        self.assertEquals(sum(self.mytree.tree_.impurity), 1/12 * error)
-
-    pass
+        self.assertEqual(sum(self.mytree.tree_.impurity), 1/12 * error)
