@@ -1,6 +1,16 @@
 language: python
 python:
   - "3.6"
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - $HOME/.conda/pkgs
+    - $HOME/.cache/pip
+
 install:
   - sudo apt-get update
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -16,11 +26,7 @@ install:
   # Create environment
   - conda env create --file environment.yml
   - source activate neue-fische
-  # - python setup.py install
-
-branches:
-  only:
-    - "master"
 
 script:
   - flake8
+  - pytest
