@@ -39,9 +39,13 @@ See `tox.ini` for settings regarding `flake8`. Should return `0` if all checks a
 - [Housing](https://github.com/maddosz12/pytorch_team_2/tree/master/projects/housing)
 - [IMDB](https://github.com/maddosz12/pytorch_team_2/tree/master/projects/imdb)
 
-## Members :busts_in_silhouette:
+## Current Members :busts_in_silhouette:
+- Dima 
+- Katharina 
+- Nathalie 
+- [Sophie](https://github.com/Spabst15)
+
+## Former Members :busts_in_silhouette:
 - [Andreas](https://github.com/fenomeno711)
 - [Fabrice](https://github.com/fabteuma)
 - [Mariano](https://github.com/marianoju)
-- [Sophie](https://github.com/Spabst15)
-
